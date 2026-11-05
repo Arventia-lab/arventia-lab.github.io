@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammet Güneş — Full-Stack Developer & Fraud/Risk Analisti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0e14; --bg2:#11151f; --card:#141a26; --line:#222a3a;
+    --txt:#eef2f8; --soft:#aab4c6; --dim:#6f7b91;
+    --acc:#ff8a2b; --acc2:#22d3ee; --grad:linear-gradient(100deg,#ff9a3c,#ff7a1a);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Inter",system-ui,Arial,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;overflow-x:hidden}
+  h1,h2,h3,.disp{font-family:"Sora",sans-serif;letter-spacing:-.02em}
+  a{color:inherit;text-decoration:none}
+  .kap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(11,14,20,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav .kap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-family:"Sora";font-weight:800;font-size:1.1rem}
+  .logo b{color:var(--acc)}
+  .nav-link{color:var(--soft);font-weight:500;margin-left:26px;font-size:.95rem;transition:.15s}
+  .nav-link:hover{color:var(--txt)}
+  .nav-links{display:flex;align-items:center}
+  @media(max-width:680px){.nav-links{display:none}}
+
+  /* HERO */
+  .hero{position:relative;padding:92px 0 72px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;z-index:0;background:
+    radial-gradient(760px 420px at 78% -10%,rgba(255,138,43,.20),transparent 60%),
+    radial-gradient(620px 400px at 8% 110%,rgba(34,211,238,.12),transparent 60%)}
+  .hero .kap{position:relative;z-index:1}
+  .et{display:inline-flex;align-items:center;gap:9px;background:rgba(255,138,43,.1);border:1px solid rgba(255,138,43,.35);color:#ffc890;padding:7px 15px;border-radius:999px;font-size:.8rem;font-weight:600;letter-spacing:.06em}
+  .et .dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 10px #22c55e}
+  h1.ad{font-size:clamp(2.6rem,7vw,4.4rem);font-weight:800;line-height:1.02;margin:22px 0 6px}
+  .rol{font-size:clamp(1.1rem,2.6vw,1.5rem);font-weight:600;color:var(--soft)}
+  .rol b{color:var(--acc2)}
+  .ozet{max-width:620px;color:var(--soft);margin:20px 0 30px;font-size:1.05rem}
+  .btns{display:flex;flex-wrap:wrap;gap:14px}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border-radius:12px;font-weight:600;font-size:.98rem;transition:.18s;cursor:pointer}
+  .btn.ana{background:var(--grad);color:#1a0d03;box-shadow:0 10px 28px rgba(255,138,43,.3)}
+  .btn.ana:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(255,138,43,.45)}
+  .btn.hyl{border:1px solid var(--line);color:var(--txt)}
+  .btn.hyl:hover{border-color:var(--acc);background:rgba(255,138,43,.06)}
+  .istat{display:flex;gap:40px;margin-top:46px;flex-wrap:wrap}
+  .istat .n{font-family:"Sora";font-weight:800;font-size:1.9rem}
+  .istat .l{color:var(--dim);font-size:.85rem}
+
+  /* SECTION */
+  section{padding:64px 0}
+  .bas{font-size:1.9rem;font-weight:800;margin-bottom:8px}
+  .bas-alt{color:var(--dim);margin-bottom:34px}
+
+  /* PROJE */
+  .izgara{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+  .proje{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;transition:.2s;position:relative;overflow:hidden}
+  .proje:hover{transform:translateY(-4px);border-color:rgba(255,138,43,.5);box-shadow:0 18px 44px rgba(0,0,0,.4)}
+  .proje .pbas{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+  .proje .ikon{width:44px;height:44px;border-radius:11px;display:grid;place-items:center;font-size:1.4rem;background:rgba(255,138,43,.12);border:1px solid rgba(255,138,43,.3)}
+  .proje h3{font-size:1.18rem;font-weight:700}
+  .proje p{color:var(--soft);font-size:.95rem}
+  .pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+  .pill{font-size:.76rem;color:#bcd;background:rgba(255,255,255,.05);border:1px solid var(--line);padding:4px 10px;border-radius:7px;font-weight:500}
+  .plink{display:inline-flex;align-items:center;gap:6px;margin-top:16px;color:var(--acc);font-weight:600;font-size:.9rem}
+  .plink:hover{gap:10px}
+
+  /* HIZMET */
+  .hiz{background:linear-gradient(180deg,var(--bg2),var(--bg))}
+  .hcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column}
+  .hcard .ikon{font-size:1.8rem;margin-bottom:12px}
+  .hcard h3{font-size:1.15rem;font-weight:700;margin-bottom:6px}
+  .hcard p{color:var(--soft);font-size:.94rem;flex:1}
+  .hcard .fiyat{color:var(--acc2);font-weight:700;margin-top:14px;font-size:.95rem}
+
+  /* SKILLS */
+  .sk{display:flex;flex-wrap:wrap;gap:10px}
+  .sk span{background:var(--card);border:1px solid var(--line);padding:10px 16px;border-radius:10px;font-weight:600;font-size:.92rem;color:#d6deeb}
+  .sk span b{color:var(--acc)}
+
+  /* CONTACT */
+  .ilet{background:linear-gradient(180deg,var(--bg),var(--bg2))}
+  .ikart{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:44px 32px;text-align:center}
+  .ikart h2{font-size:1.9rem;font-weight:800;margin-bottom:10px}
+  .ikart p{color:var(--soft);max-width:520px;margin:0 auto 26px}
+  .baglar{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .bag{display:inline-flex;align-items:center;gap:9px;padding:12px 20px;border-radius:12px;border:1px solid var(--line);background:var(--bg2);font-weight:600;font-size:.95rem;transition:.16s}
+  .bag:hover{border-color:var(--acc);transform:translateY(-2px)}
+  .eposta{color:var(--dim);margin-top:22px;font-size:.9rem}
+
+  footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:var(--dim);font-size:.85rem}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s}
+  .reveal.go{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="kap">
+    <div class="logo">Muhammet <b>Güneş</b></div>
+    <div class="nav-links">
+      <a class="nav-link" href="#projeler">Projeler</a>
+      <a class="nav-link" href="#hizmetler">Hizmetler</a>
+      <a class="nav-link" href="#yetenekler">Yetenekler</a>
+      <a class="nav-link" href="#iletisim">İletişim</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="kap">
+    <span class="et"><span class="dot"></span> Freelance / uzaktan projelere açık</span>
+    <h1 class="ad">Muhammet <span class="grad">Güneş</span></h1>
+    <div class="rol">Full-Stack Developer &amp; <b>Fraud / Risk Analisti</b></div>
+    <p class="ozet">5+ yıl deneyimle fikirden canlı ürüne kadar web uygulamaları, gerçek zamanlı çok oyunculu sistemler ve tarayıcı tabanlı araçlar geliştiriyorum. Veritabanından arayüze, tek başıma uçtan uca.</p>
+    <div class="btns">
+      <a class="btn ana" href="#projeler">🚀 Projelerime Bak</a>
+      <a class="btn hyl" href="#iletisim">İletişime Geç</a>
+    </div>
+    <div class="istat">
+      <div><div class="n grad">5+</div><div class="l">yıl deneyim</div></div>
+      <div><div class="n grad">Full-Stack</div><div class="l">uçtan uca geliştirme</div></div>
+      <div><div class="n grad">Real-time</div><div class="l">WebSocket & çok oyunculu</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="projeler">
+  <div class="kap">
+    <h2 class="bas reveal">Projeler</h2>
+    <p class="bas-alt reveal">Tek başıma uçtan uca geliştirdiğim bazı çalışmalar.</p>
+    <div class="izgara">
+      <div class="proje reveal">
+        <div class="pbas"><div class="ikon">🛡️</div><h3>Payout Review</h3></div>
+        <p>Tarayıcıda çalışan fraud &amp; risk inceleme aracı. CSV yükleyip hesap bazında risk skoru üretir — entegrasyon gerektirmez, veri tarayıcıdan çıkmaz.</p>
+        <div class="pills"><span class="pill">JavaScript</span><span class="pill">Fraud/Risk</span><span class="pill">Veri Analizi</span></div>
+        <a class="plink" href="https://arventia-lab.github.io/payout-review/" target="_blank" rel="noopener">Canlı Gör →</a>
+      </div>
+      <div class="proje reveal">
+        <div class="pbas"><div class="ikon">🃏</div><h3>Canlı-Casino Blackjack Motoru</h3></div>
+        <p>Gerçek canlı-casino masasına benzeyen blackjack: 3 pota çok-el, koltuk-başı yan bahisler, çip rafı, sıralı kart dağıtımı, ses ve kazanç animasyonları.</p>
+        <div class="pills"><span class="pill">TypeScript</span><span class="pill">Bun</span><span class="pill">Oyun Motoru</span></div>
+      </div>
+      <div class="proje reveal">
+        <div class="pbas"><div class="ikon">🀄</div><h3>Çok Oyunculu Okey &amp; Batak</h3></div>
+        <p>WebSocket ile gerçek zamanlı çok oyunculu oyun sunucuları (düz / cezalı / 101 okey, batak). Yapılandırılabilir oyun motorları, bot rakipler, canlı masa.</p>
+        <div class="pills"><span class="pill">WebSocket</span><span class="pill">Node.js</span><span class="pill">Real-time</span></div>
+      </div>
+      <div class="proje reveal">
+        <div class="pbas"><div class="ikon">🎰</div><h3>Sosyal Casino Platformu</h3></div>
+        <p>Bun + TypeScript ile uçtan uca sosyal oyun platformu: kullanıcı/oturum, sanal çip ekonomisi, çoklu oyun, SQLite veritabanı ve yönetim paneli.</p>
+        <div class="pills"><span class="pill">Full-Stack</span><span class="pill">SQLite</span><span class="pill">REST + WS</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hizmetler" class="hiz">
+  <div class="kap">
+    <h2 class="bas reveal">Hizmetler</h2>
+    <p class="bas-alt reveal">Bionluk üzerinden sipariş verebilir, doğrudan da yazabilirsin.</p>
+    <div class="izgara">
+      <div class="hcard reveal">
+        <div class="ikon">📊</div>
+        <h3>Excel &amp; Google Sheets Otomasyonu</h3>
+        <p>Tekrarlayan işleri otomatikleştir: formül/makro/script ile otomatik hesaplama, raporlama, veri temizleme ve birleştirme.</p>
+        <div class="fiyat">250 TL'den başlayan</div>
+        <a class="plink" href="https://bionluk.com/muhammetgunes2/Excel-ve-Google-Sheets-otomasyonu-yaparim-899218" target="_blank" rel="noopener">Bionluk'ta Gör →</a>
+      </div>
+      <div class="hcard reveal">
+        <div class="ikon">💻</div>
+        <h3>Web Sitesi &amp; Web Uygulaması</h3>
+        <p>İhtiyacına özel kodlanmış, mobil uyumlu ve hızlı web siteleri ile web uygulamaları. Kurumsal site, landing, panel ve daha fazlası.</p>
+        <div class="fiyat">750 TL'den başlayan</div>
+        <a class="plink" href="https://bionluk.com/muhammetgunes2/web-siteni-ve-web-uygulamani-kodlarim-899219" target="_blank" rel="noopener">Bionluk'ta Gör →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="yetenekler">
+  <div class="kap">
+    <h2 class="bas reveal">Yetenekler</h2>
+    <p class="bas-alt reveal">Kullandığım teknolojiler ve uzmanlık alanlarım.</p>
+    <div class="sk reveal">
+      <span><b>TypeScript</b></span><span><b>JavaScript</b></span><span><b>Node.js</b></span>
+      <span><b>Bun</b></span><span><b>WebSocket</b></span><span><b>SQLite</b></span>
+      <span>SQL</span><span>REST API</span><span>Gerçek Zamanlı Sistemler</span>
+      <span>HTML</span><span>CSS</span><span>Git</span>
+      <span>Full-Stack Geliştirme</span><span>Fraud &amp; Risk Analizi</span><span>Otomasyon</span>
+    </div>
+  </div>
+</section>
+
+<section id="iletisim" class="ilet">
+  <div class="kap">
+    <div class="ikart reveal">
+      <h2>Birlikte bir şey yapalım</h2>
+      <p>Bir projen, fikrin veya ihtiyacın mı var? İşini kısaca anlat, sana en uygun çözümü birlikte planlayalım. Freelance ve uzaktan projelere açığım.</p>
+      <div class="baglar">
+        <a class="bag" href="mailto:gunes0236@icloud.com">✉️ E-posta</a>
+        <a class="bag" href="https://www.linkedin.com/in/arventia-lab/" target="_blank" rel="noopener">in LinkedIn</a>
+        <a class="bag" href="https://github.com/arventia-lab" target="_blank" rel="noopener">⌁ GitHub</a>
+        <a class="bag" href="https://bionluk.com/muhammetgunes2" target="_blank" rel="noopener">◆ Bionluk</a>
+      </div>
+      <div class="eposta">gunes0236@icloud.com</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Muhammet Güneş · Arventia Lab — Full-Stack Developer &amp; Fraud/Risk Analisti
+</footer>
+
+<script>
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('go');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+</script>
+</body>
+</html>
