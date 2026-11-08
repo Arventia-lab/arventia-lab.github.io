@@ -20,6 +20,7 @@
 <link rel="canonical" href="https://arventia-lab.github.io/">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#05070f">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -39,7 +40,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Sacramento&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#05070f; --bg2:#080b16; --panel:#0c1020; --panel2:#0f1426;
@@ -74,7 +75,11 @@
   /* NAV */
   nav{position:sticky;top:0;z-index:60;background:rgba(5,7,15,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
   nav .kap{display:flex;align-items:center;justify-content:space-between;height:70px}
-  .logo{display:flex;align-items:center;gap:11px;font-family:"Space Grotesk";font-weight:700;font-size:1.18rem;letter-spacing:-.01em}
+  .logo{display:flex;align-items:center;gap:9px}
+  .brandword{font-family:"Sacramento",cursive;font-weight:400;font-size:31px;color:var(--txt);line-height:1;transform:translateY(2px)}
+  .lsym{width:15px;height:15px;flex:0 0 auto}
+  .dia{width:14px;height:14px;flex:0 0 auto}
+  .flock{display:block;width:300px;max-width:78%;height:auto;margin:0 auto 10px}
   .mark{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--teal),var(--vio));display:grid;place-items:center;box-shadow:var(--glow);position:relative}
   .mark::after{content:"";position:absolute;width:12px;height:12px;border-radius:4px;background:var(--bg)}
   .mark::before{content:"";position:absolute;width:6px;height:6px;border-radius:50%;background:var(--teal);z-index:1;box-shadow:0 0 10px var(--teal)}
@@ -201,7 +206,10 @@
 <div class="wrap">
 <nav>
   <div class="kap">
-    <a href="#" class="logo"><span class="mark"></span> chermantia</a>
+    <a href="#" class="logo" aria-label="Chermantia">
+      <span class="brandword">Chermantia</span>
+      <svg class="dia" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4 L20 12 L12 20 L4 12 Z" fill="none" stroke="#19e0d2" stroke-width="2"/><circle cx="12" cy="12" r="2.2" fill="#19e0d2"/></svg>
+    </a>
     <div class="nav-links">
       <a class="nav-link" href="#projeler">Projeler</a>
       <a class="nav-link" href="#hizmetler">Hizmetler</a>
@@ -344,7 +352,13 @@
 </section>
 
 <footer>
-  <div class="logo"><span class="mark"></span> chermantia</div>
+  <svg class="flock" viewBox="0 0 680 150" role="img" aria-label="Chermantia — Software Studio">
+    <text x="340" y="80" text-anchor="middle" style="font-family:'Sacramento',cursive;font-size:62px;fill:#eef3f7">Chermantia</text>
+    <text x="340" y="106" text-anchor="middle" style="font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:500;letter-spacing:6px;fill:#3fd8cb">SOFTWARE STUDIO</text>
+    <path d="M214 122 L324 122 M356 122 L466 122" fill="none" stroke="#19e0d2" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M340 113 L349 122 L340 131 L331 122 Z" fill="none" stroke="#19e0d2" stroke-width="1.8"/>
+    <circle cx="340" cy="122" r="1.9" fill="#19e0d2"/>
+  </svg>
   © 2026 Chermantia — Full-Stack Web, Gerçek Zamanlı Sistemler &amp; Otomasyon
 </footer>
 </div>
