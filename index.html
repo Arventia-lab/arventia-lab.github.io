@@ -88,6 +88,10 @@
   .nav-link:hover{color:var(--txt)}
   .nav-cta{padding:9px 18px;border-radius:10px;background:linear-gradient(100deg,var(--teal),var(--teal2));color:#032420;font-weight:700;font-size:.9rem;box-shadow:0 8px 24px rgba(31,224,200,.25)}
   .nav-cta:hover{transform:translateY(-1px)}
+  .langsw{display:inline-flex;gap:2px;border:1px solid var(--line2);border-radius:999px;padding:3px;margin-left:2px}
+  .langsw button{background:none;border:0;color:var(--soft);font:600 .74rem "Space Grotesk",sans-serif;padding:5px 9px;border-radius:999px;cursor:pointer;letter-spacing:.03em}
+  .langsw button.on{background:linear-gradient(100deg,var(--teal),var(--teal2));color:#032420}
+  .langsw button:hover:not(.on){color:var(--txt)}
   @media(max-width:760px){.nav-links .nav-link{display:none}}
 
   /* BTN */
@@ -205,6 +209,42 @@
   .rdot.amb{background:#ffb020}
   .rdot.grn{background:#22d3a5;box-shadow:0 0 9px rgba(34,211,165,.5)}
   @media(max-width:820px){.case{grid-template-columns:1fr;padding:26px}.caseR{order:-1}}
+  /* hakkımızda */
+  .about{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+  .about p{color:var(--soft);font-size:1.05rem;margin-bottom:14px}
+  .vals{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+  .vals span{background:var(--panel);border:1px solid var(--line);padding:9px 14px;border-radius:10px;font-size:.88rem;color:#d3dde6}
+  .aboutcard{background:linear-gradient(160deg,rgba(31,224,200,.08),rgba(124,92,255,.08));border:1px solid var(--line2);border-radius:20px;padding:30px;text-align:center}
+  .aboutcard .big{font-family:"Space Grotesk";font-weight:700;font-size:2rem}
+  .aboutcard .lab{color:var(--dim);font-size:.9rem;margin-top:3px}
+  .aboutcard hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+  @media(max-width:820px){.about{grid-template-columns:1fr}}
+  /* sss */
+  .faq{max-width:760px}
+  .faq details{background:var(--panel);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+  .faq summary{list-style:none;cursor:pointer;padding:18px 22px;font-weight:600;font-size:1.02rem;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";color:var(--teal);font-size:1.4rem;font-family:"Space Grotesk";line-height:1;transition:.2s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq details[open] summary{color:var(--teal)}
+  .faq .ans{padding:0 22px 20px;color:var(--soft);font-size:.96rem}
+  /* blog */
+  .posts{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+  .post{display:block;background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:18px;padding:26px;transition:.2s}
+  .post:hover{transform:translateY(-5px);border-color:rgba(31,224,200,.4)}
+  .pmeta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .pcat{font-family:"Space Grotesk";font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
+  .soon{font-size:.66rem;color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+  .post h3{font-size:1.16rem;font-weight:700;margin-bottom:8px}
+  .post p{color:var(--soft);font-size:.93rem}
+  /* form */
+  .cform{display:grid;gap:12px;max-width:520px;margin:0 auto 24px;text-align:left}
+  .cform .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .cform input,.cform textarea{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--line2);border-radius:12px;padding:13px 15px;color:var(--txt);font-family:inherit;font-size:.96rem}
+  .cform input:focus,.cform textarea:focus{outline:none;border-color:var(--teal)}
+  .cform textarea{min-height:120px;resize:vertical}
+  .ferr{color:#ff8a7e;font-size:.82rem;display:none}
+  @media(max-width:520px){.cform .row2{grid-template-columns:1fr}}
   /* PINNED hero (sabit + scroll animasyonu) */
   .pin{position:relative;height:210vh}
   .pinner{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden}
@@ -236,11 +276,17 @@
       <svg class="dia" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4 L20 12 L12 20 L4 12 Z" fill="none" stroke="#19e0d2" stroke-width="2"/><circle cx="12" cy="12" r="2.2" fill="#19e0d2"/></svg>
     </a>
     <div class="nav-links">
-      <a class="nav-link" href="#projeler">Projeler</a>
-      <a class="nav-link" href="#surec">Süreç</a>
-      <a class="nav-link" href="#hizmetler">Hizmetler</a>
-      <a class="nav-link" href="#yetenekler">Yetenekler</a>
-      <a class="nav-cta" href="#iletisim">İletişim</a>
+      <a class="nav-link" href="#projeler" data-i18n="nav.projeler">Projeler</a>
+      <a class="nav-link" href="#surec" data-i18n="nav.surec">Süreç</a>
+      <a class="nav-link" href="#hizmetler" data-i18n="nav.hizmetler">Hizmetler</a>
+      <a class="nav-link" href="#hakkimizda" data-i18n="nav.hakkimizda">Hakkımızda</a>
+      <a class="nav-link" href="#sss" data-i18n="nav.sss">SSS</a>
+      <div class="langsw" role="group" aria-label="Dil / Language">
+        <button type="button" data-lang="tr">TR</button>
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="de">DE</button>
+      </div>
+      <a class="nav-cta" href="#iletisim" data-i18n="nav.iletisim">İletişim</a>
     </div>
   </div>
 </nav>
@@ -249,18 +295,18 @@
   <div class="pinner">
     <div class="kap pinrow">
       <div class="pintext willch">
-        <span class="chip"><span class="dot"></span> Freelance &amp; uzaktan projelere açık</span>
-        <h1 class="hbas">Fikirden<br><span class="ggrad">canlı ürüne</span></h1>
-        <p class="hsub"><b>Chermantia</b> — full-stack web, gerçek zamanlı sistemler ve otomasyon üzerine bağımsız bir yazılım stüdyosu. Veritabanından arayüze, uçtan uca inşa ederiz.</p>
+        <span class="chip"><span class="dot"></span> <span data-i18n="hero.chip">Freelance &amp; uzaktan projelere açık</span></span>
+        <h1 class="hbas" data-i18n="hero.h1">Fikirden<br><span class="ggrad">canlı ürüne</span></h1>
+        <p class="hsub" data-i18n="hero.sub"><b>Chermantia</b> — full-stack web, gerçek zamanlı sistemler ve otomasyon üzerine bağımsız bir yazılım stüdyosu. Veritabanından arayüze, uçtan uca inşa ederiz.</p>
         <div class="hbtns">
-          <a class="btn ana" href="#projeler">İşlere Bak
+          <a class="btn ana" href="#projeler"><span data-i18n="hero.btn1">İşlere Bak</span>
             <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn hyl" href="#iletisim">İletişime Geç</a>
+          <a class="btn hyl" href="#iletisim" data-i18n="hero.btn2">İletişime Geç</a>
         </div>
         <div class="istat">
-          <div><div class="n ggrad">5+</div><div class="l">yıl deneyim</div></div>
-          <div><div class="n ggrad">Full-Stack</div><div class="l">uçtan uca geliştirme</div></div>
-          <div><div class="n ggrad">Real-time</div><div class="l">WebSocket &amp; çok oyunculu</div></div>
+          <div><div class="n ggrad">5+</div><div class="l" data-i18n="hero.stat1">yıl deneyim</div></div>
+          <div><div class="n ggrad">Full-Stack</div><div class="l" data-i18n="hero.stat2">uçtan uca geliştirme</div></div>
+          <div><div class="n ggrad">Real-time</div><div class="l" data-i18n="hero.stat3">WebSocket &amp; çok oyunculu</div></div>
         </div>
       </div>
       <div class="codewrap willch">
@@ -279,36 +325,36 @@
         </div>
       </div>
     </div>
-    <div class="scroll-cue"><span>kaydır</span><span class="ln"></span></div>
+    <div class="scroll-cue"><span data-i18n="hero.cue">kaydır</span><span class="ln"></span></div>
   </div>
 </section>
 
 <section id="projeler">
   <div class="kap">
     <div class="shead reveal">
-      <span class="eyebrow">Portföy</span>
-      <h2>Uçtan uca geliştirdiğimiz işler</h2>
-      <p>Tasarımdan veritabanına, canlıya alınmış gerçek çalışmalar.</p>
+      <span class="eyebrow" data-i18n="proj.eyebrow">Portföy</span>
+      <h2 data-i18n="proj.h2">Uçtan uca geliştirdiğimiz işler</h2>
+      <p data-i18n="proj.sub">Tasarımdan veritabanına, canlıya alınmış gerçek çalışmalar.</p>
     </div>
     <div class="grid">
       <div class="card reveal">
         <div class="cico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
-        <h3>Payout Review</h3>
-        <p>Tarayıcıda çalışan fraud &amp; risk inceleme aracı. CSV yükleyip hesap bazında risk skoru üretir — entegrasyon gerektirmez, veri tarayıcıdan çıkmaz.</p>
-        <div class="pills"><span class="pill">JavaScript</span><span class="pill">Fraud/Risk</span><span class="pill">Veri Analizi</span></div>
-        <a class="plink" href="https://arventia-lab.github.io/payout-review/" target="_blank" rel="noopener">Canlı Gör
+        <h3 data-i18n="proj1.title">Payout Review</h3>
+        <p data-i18n="proj1.desc">Tarayıcıda çalışan fraud &amp; risk inceleme aracı. CSV yükleyip hesap bazında risk skoru üretir — entegrasyon gerektirmez, veri tarayıcıdan çıkmaz.</p>
+        <div class="pills"><span class="pill">JavaScript</span><span class="pill">Fraud/Risk</span><span class="pill" data-i18n="pill.dataanalysis">Veri Analizi</span></div>
+        <a class="plink" href="https://arventia-lab.github.io/payout-review/" target="_blank" rel="noopener"><span data-i18n="link.live">Canlı Gör</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
       </div>
       <div class="card v reveal">
         <div class="cico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
-        <h3>Çok Oyunculu Okey &amp; Batak</h3>
-        <p>WebSocket ile gerçek zamanlı çok oyunculu oyun sunucuları (düz / cezalı / 101 okey, batak). Yapılandırılabilir oyun motorları, bot rakipler, canlı masa.</p>
+        <h3 data-i18n="proj2.title">Çok Oyunculu Okey &amp; Batak</h3>
+        <p data-i18n="proj2.desc">WebSocket ile gerçek zamanlı çok oyunculu oyun sunucuları (düz / cezalı / 101 okey, batak). Yapılandırılabilir oyun motorları, bot rakipler, canlı masa.</p>
         <div class="pills"><span class="pill">WebSocket</span><span class="pill">Node.js</span><span class="pill">Real-time</span></div>
       </div>
       <div class="card m reveal">
         <div class="cico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5-9 5-9-5 9-5z"/><path d="M3 12l9 5 9-5"/><path d="M3 17l9 5 9-5"/></svg></div>
-        <h3>Full-Stack Web Uygulamaları</h3>
-        <p>Bun + TypeScript ile uçtan uca web uygulamaları: kullanıcı/oturum yönetimi, SQLite veritabanı, REST + WebSocket API ve yönetim paneli. İhtiyaca özel panel ve otomasyon.</p>
+        <h3 data-i18n="proj3.title">Full-Stack Web Uygulamaları</h3>
+        <p data-i18n="proj3.desc">Bun + TypeScript ile uçtan uca web uygulamaları: kullanıcı/oturum yönetimi, SQLite veritabanı, REST + WebSocket API ve yönetim paneli. İhtiyaca özel panel ve otomasyon.</p>
         <div class="pills"><span class="pill">Full-Stack</span><span class="pill">SQLite</span><span class="pill">REST + WS</span></div>
       </div>
     </div>
@@ -318,20 +364,20 @@
 <section id="vaka">
   <div class="kap">
     <div class="shead reveal">
-      <span class="eyebrow">Vaka Çalışmaları</span>
-      <h2>Yakından: nasıl çözdük</h2>
-      <p>Birkaç işi hedef, yaklaşım ve sonucuyla açtık.</p>
+      <span class="eyebrow" data-i18n="vaka.eyebrow">Vaka Çalışmaları</span>
+      <h2 data-i18n="vaka.h2">Yakından: nasıl çözdük</h2>
+      <p data-i18n="vaka.sub">Birkaç işi hedef, yaklaşım ve sonucuyla açtık.</p>
     </div>
     <div class="cases">
       <article class="case reveal">
         <div class="caseL">
           <span class="ctag">Fraud &amp; Risk</span>
           <h3>Payout Review</h3>
-          <div class="cblock"><h4>Hedef</h4><p>Ödeme/çekim işlemlerinde riskli hesapları, veriyi dışarı çıkarmadan hızlıca ayıklamak.</p></div>
-          <div class="cblock"><h4>Yaklaşım</h4><p>Tamamen tarayıcıda çalışan, CSV yükleyip hesap bazında kural motoruyla risk skoru üreten bir araç geliştirdik — sunucu ya da entegrasyon gerektirmez.</p></div>
-          <div class="cblock"><h4>Sonuç</h4><p>Veri gizliliği korunarak (hiçbir şey tarayıcıdan çıkmaz) yüzlerce kaydın manuel incelemesi dakikalara indi.</p></div>
+          <div class="cblock"><h4 data-i18n="vaka.goal">Hedef</h4><p data-i18n="case1.goal">Ödeme/çekim işlemlerinde riskli hesapları, veriyi dışarı çıkarmadan hızlıca ayıklamak.</p></div>
+          <div class="cblock"><h4 data-i18n="vaka.approach">Yaklaşım</h4><p data-i18n="case1.approach">Tamamen tarayıcıda çalışan, CSV yükleyip hesap bazında kural motoruyla risk skoru üreten bir araç geliştirdik — sunucu ya da entegrasyon gerektirmez.</p></div>
+          <div class="cblock"><h4 data-i18n="vaka.result">Sonuç</h4><p data-i18n="case1.result">Veri gizliliği korunarak (hiçbir şey tarayıcıdan çıkmaz) yüzlerce kaydın manuel incelemesi dakikalara indi.</p></div>
           <div class="pills"><span class="pill">JavaScript</span><span class="pill">Kural Motoru</span><span class="pill">Veri Analizi</span></div>
-          <a class="plink" href="https://arventia-lab.github.io/payout-review/" target="_blank" rel="noopener">Canlı Gör
+          <a class="plink" href="https://arventia-lab.github.io/payout-review/" target="_blank" rel="noopener"><span data-i18n="link.live">Canlı Gör</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
         </div>
         <div class="caseR">
@@ -346,11 +392,11 @@
       </article>
       <article class="case reveal">
         <div class="caseL">
-          <span class="ctag">Gerçek Zamanlı Oyun</span>
-          <h3>Çok Oyunculu Okey &amp; Batak</h3>
-          <div class="cblock"><h4>Hedef</h4><p>Birden fazla oyuncunun aynı masada gecikmesiz, senkron oynayabildiği bir oyun platformu.</p></div>
-          <div class="cblock"><h4>Yaklaşım</h4><p>WebSocket üzerinde gerçek zamanlı sunucular; yapılandırılabilir oyun motorları (düz / cezalı / 101 okey, batak), bot rakipler ve canlı masa durumu.</p></div>
-          <div class="cblock"><h4>Sonuç</h4><p>Anlık senkron masa, kopmalara dayanıklı oturum yönetimi ve kolayca yeni mod eklenebilen esnek motor mimarisi.</p></div>
+          <span class="ctag" data-i18n="case2.tag">Gerçek Zamanlı Oyun</span>
+          <h3 data-i18n="proj2.title">Çok Oyunculu Okey &amp; Batak</h3>
+          <div class="cblock"><h4 data-i18n="vaka.goal">Hedef</h4><p data-i18n="case2.goal">Birden fazla oyuncunun aynı masada gecikmesiz, senkron oynayabildiği bir oyun platformu.</p></div>
+          <div class="cblock"><h4 data-i18n="vaka.approach">Yaklaşım</h4><p data-i18n="case2.approach">WebSocket üzerinde gerçek zamanlı sunucular; yapılandırılabilir oyun motorları (düz / cezalı / 101 okey, batak), bot rakipler ve canlı masa durumu.</p></div>
+          <div class="cblock"><h4 data-i18n="vaka.result">Sonuç</h4><p data-i18n="case2.result">Anlık senkron masa, kopmalara dayanıklı oturum yönetimi ve kolayca yeni mod eklenebilen esnek motor mimarisi.</p></div>
           <div class="pills"><span class="pill">WebSocket</span><span class="pill">Node.js</span><span class="pill">Real-time</span></div>
         </div>
         <div class="caseR">
@@ -374,16 +420,16 @@
 <section id="surec">
   <div class="kap">
     <div class="shead reveal">
-      <span class="eyebrow">Süreç</span>
-      <h2>Fikirden teslime, net bir süreç</h2>
-      <p>Her projede şeffaf, adım adım ilerleriz — sürpriz yok.</p>
+      <span class="eyebrow" data-i18n="surec.eyebrow">Süreç</span>
+      <h2 data-i18n="surec.h2">Fikirden teslime, net bir süreç</h2>
+      <p data-i18n="surec.sub">Her projede şeffaf, adım adım ilerleriz — sürpriz yok.</p>
     </div>
     <div class="steps">
-      <div class="step reveal"><div class="snum">01</div><h3>Keşif</h3><p>İhtiyacını dinler, hedefi ve kapsamı birlikte netleştiririz.</p></div>
-      <div class="step reveal"><div class="snum">02</div><h3>Teklif &amp; Plan</h3><p>Şeffaf fiyat ve net bir zaman çizelgesi çıkarırız.</p></div>
-      <div class="step reveal"><div class="snum">03</div><h3>Geliştirme</h3><p>Uçtan uca kodlar, düzenli güncellemeyle ilerlemeyi gösteririz.</p></div>
-      <div class="step reveal"><div class="snum">04</div><h3>Test &amp; Teslim</h3><p>Test eder, canlıya alır, kısa bir kullanım anlatımı veririz.</p></div>
-      <div class="step reveal"><div class="snum">05</div><h3>Destek</h3><p>Teslimden sonra da yanındayız; takıldığın yerde buradayız.</p></div>
+      <div class="step reveal"><div class="snum">01</div><h3 data-i18n="step1.t">Keşif</h3><p data-i18n="step1.d">İhtiyacını dinler, hedefi ve kapsamı birlikte netleştiririz.</p></div>
+      <div class="step reveal"><div class="snum">02</div><h3 data-i18n="step2.t">Teklif &amp; Plan</h3><p data-i18n="step2.d">Şeffaf fiyat ve net bir zaman çizelgesi çıkarırız.</p></div>
+      <div class="step reveal"><div class="snum">03</div><h3 data-i18n="step3.t">Geliştirme</h3><p data-i18n="step3.d">Uçtan uca kodlar, düzenli güncellemeyle ilerlemeyi gösteririz.</p></div>
+      <div class="step reveal"><div class="snum">04</div><h3 data-i18n="step4.t">Test &amp; Teslim</h3><p data-i18n="step4.d">Test eder, canlıya alır, kısa bir kullanım anlatımı veririz.</p></div>
+      <div class="step reveal"><div class="snum">05</div><h3 data-i18n="step5.t">Destek</h3><p data-i18n="step5.d">Teslimden sonra da yanındayız; takıldığın yerde buradayız.</p></div>
     </div>
   </div>
 </section>
@@ -391,25 +437,25 @@
 <section id="hizmetler">
   <div class="kap">
     <div class="shead reveal">
-      <span class="eyebrow">Hizmetler</span>
-      <h2>Birlikte çalışalım</h2>
-      <p>Bionluk üzerinden sipariş verebilir ya da doğrudan yazabilirsin.</p>
+      <span class="eyebrow" data-i18n="hiz.eyebrow">Hizmetler</span>
+      <h2 data-i18n="hiz.h2">Birlikte çalışalım</h2>
+      <p data-i18n="hiz.sub">Bionluk üzerinden sipariş verebilir ya da doğrudan yazabilirsin.</p>
     </div>
     <div class="grid">
       <div class="card reveal">
         <div class="cico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></div>
-        <h3>Excel &amp; Google Sheets Otomasyonu</h3>
-        <p>Tekrarlayan işleri otomatikleştir: formül/makro/script ile otomatik hesaplama, raporlama, veri temizleme ve birleştirme.</p>
-        <div class="fiyat">250 TL'den başlayan</div>
-        <a class="plink" href="https://bionluk.com/muhammetgunes2/Excel-ve-Google-Sheets-otomasyonu-yaparim-899218" target="_blank" rel="noopener">Bionluk'ta Gör
+        <h3 data-i18n="hiz1.title">Excel &amp; Google Sheets Otomasyonu</h3>
+        <p data-i18n="hiz1.desc">Tekrarlayan işleri otomatikleştir: formül/makro/script ile otomatik hesaplama, raporlama, veri temizleme ve birleştirme.</p>
+        <div class="fiyat" data-i18n="hiz1.price">250 TL'den başlayan</div>
+        <a class="plink" href="https://bionluk.com/muhammetgunes2/Excel-ve-Google-Sheets-otomasyonu-yaparim-899218" target="_blank" rel="noopener"><span data-i18n="link.bionluk">Bionluk'ta Gör</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
       </div>
       <div class="card v reveal">
         <div class="cico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8h20M6 6h.01M9 6h.01"/><path d="M8 13l-2 2 2 2M14 13l2 2-2 2"/></svg></div>
-        <h3>Web Sitesi &amp; Web Uygulaması</h3>
-        <p>İhtiyacına özel kodlanmış, mobil uyumlu ve hızlı web siteleri ile web uygulamaları. Kurumsal site, landing, panel ve daha fazlası.</p>
-        <div class="fiyat">750 TL'den başlayan</div>
-        <a class="plink" href="https://bionluk.com/muhammetgunes2/web-siteni-ve-web-uygulamani-kodlarim-899219" target="_blank" rel="noopener">Bionluk'ta Gör
+        <h3 data-i18n="hiz2.title">Web Sitesi &amp; Web Uygulaması</h3>
+        <p data-i18n="hiz2.desc">İhtiyacına özel kodlanmış, mobil uyumlu ve hızlı web siteleri ile web uygulamaları. Kurumsal site, landing, panel ve daha fazlası.</p>
+        <div class="fiyat" data-i18n="hiz2.price">750 TL'den başlayan</div>
+        <a class="plink" href="https://bionluk.com/muhammetgunes2/web-siteni-ve-web-uygulamani-kodlarim-899219" target="_blank" rel="noopener"><span data-i18n="link.bionluk">Bionluk'ta Gör</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
       </div>
     </div>
@@ -419,16 +465,62 @@
 <section id="yetenekler">
   <div class="kap">
     <div class="shead reveal">
-      <span class="eyebrow">Yetenekler</span>
-      <h2>Kullandığımız teknolojiler</h2>
-      <p>Uzmanlık alanlarımız ve araç setimiz.</p>
+      <span class="eyebrow" data-i18n="yet.eyebrow">Yetenekler</span>
+      <h2 data-i18n="yet.h2">Kullandığımız teknolojiler</h2>
+      <p data-i18n="yet.sub">Uzmanlık alanlarımız ve araç setimiz.</p>
     </div>
     <div class="sk reveal">
       <span><b>TypeScript</b></span><span><b>JavaScript</b></span><span><b>Node.js</b></span>
       <span><b>Bun</b></span><span><b>WebSocket</b></span><span><b>SQLite</b></span>
-      <span>SQL</span><span>REST API</span><span>Gerçek Zamanlı Sistemler</span>
+      <span>SQL</span><span>REST API</span><span data-i18n="skill.realtime">Gerçek Zamanlı Sistemler</span>
       <span>HTML</span><span>CSS</span><span>Git</span>
-      <span>Full-Stack Geliştirme</span><span>Fraud &amp; Risk Analizi</span><span>Otomasyon</span>
+      <span data-i18n="skill.fullstack">Full-Stack Geliştirme</span><span data-i18n="skill.fraud">Fraud &amp; Risk Analizi</span><span data-i18n="skill.automation">Otomasyon</span>
+    </div>
+  </div>
+</section>
+
+<section id="hakkimizda">
+  <div class="kap">
+    <div class="about reveal">
+      <div>
+        <span class="eyebrow" data-i18n="hak.eyebrow">Hakkımızda</span>
+        <h2 data-i18n="hak.h2" style="font-size:clamp(1.9rem,4vw,2.7rem);font-weight:700;margin:12px 0 16px">Tek kişilik güç, stüdyo disiplini</h2>
+        <p data-i18n="hak.p1">Chermantia, <b>Muhammet Güneş</b> tarafından kurulan bağımsız bir yazılım stüdyosudur. 5+ yıldır full-stack web, gerçek zamanlı çok oyunculu sistemler ve otomasyon üzerine çalışıyorum — fikirden canlı ürüne, veritabanından arayüze uçtan uca.</p>
+        <p data-i18n="hak.p2">Büyük ekip yok; <b>doğrudan geliştiriciyle</b> çalışırsın. Bu da hızlı iletişim, şeffaf süreç ve işin sahibiyle birebir temas demek. Freelance ve uzaktan projelere açığım.</p>
+        <div class="vals"><span data-i18n="hak.v1">Dürüst iletişim</span><span data-i18n="hak.v2">Şeffaf fiyat</span><span data-i18n="hak.v3">Temiz kod</span><span data-i18n="hak.v4">Zamanında teslim</span></div>
+      </div>
+      <div class="aboutcard">
+        <div class="big ggrad">5+</div><div class="lab" data-i18n="hero.stat1">yıl deneyim</div>
+        <hr>
+        <div class="big ggrad" data-i18n="hak.card2">Uçtan uca</div><div class="lab" data-i18n="hak.card2l">tasarımdan sunucuya tek elden</div>
+        <hr>
+        <div class="big ggrad" data-i18n="hak.card3">Uzaktan</div><div class="lab" data-i18n="hak.card3l">Türkiye &amp; global, async çalışma</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sss">
+  <div class="kap">
+    <div class="shead reveal"><span class="eyebrow" data-i18n="sss.eyebrow">SSS</span><h2 data-i18n="sss.h2">Sık sorulan sorular</h2><p data-i18n="sss.sub">Aklındaki ilk soruların yanıtı.</p></div>
+    <div class="faq reveal">
+      <details><summary data-i18n="q1">Hangi tür projeler yapıyorsunuz?</summary><div class="ans" data-i18n="a1">Web siteleri ve web uygulamaları, gerçek zamanlı sistemler (WebSocket), otomasyon ve veri/araç geliştirme. Kurumsal siteden özel panellere kadar geniş bir yelpaze.</div></details>
+      <details><summary data-i18n="q2">Fiyatlandırma nasıl işliyor?</summary><div class="ans" data-i18n="a2">Her proje kapsamına göre fiyatlanır. Küçük işler birkaç yüz TL'den başlar; kapsamı netleştirip sabit, şeffaf bir teklif veririz — sürpriz maliyet yok.</div></details>
+      <details><summary data-i18n="q3">Ne kadar sürede teslim edersiniz?</summary><div class="ans" data-i18n="a3">İşin boyutuna bağlı: bir landing birkaç gün, kapsamlı bir uygulama birkaç hafta. Başta net bir zaman çizelgesi paylaşırız.</div></details>
+      <details><summary data-i18n="q4">Uzaktan mı çalışıyorsunuz?</summary><div class="ans" data-i18n="a4">Evet, tamamen uzaktan ve çoğunlukla yazılı/async iletişimle. Türkiye ve yurt dışı projelerine açığız.</div></details>
+      <details><summary data-i18n="q5">Teslimden sonra destek veriyor musunuz?</summary><div class="ans" data-i18n="a5">Evet. Teslim sonrası kısa kullanım anlatımı, küçük düzeltmeler ve takıldığın noktalarda destek dahildir.</div></details>
+      <details><summary data-i18n="q6">Hangi teknolojileri kullanıyorsunuz?</summary><div class="ans" data-i18n="a6">Node.js, TypeScript, Bun, WebSocket, React, SQLite/SQL, REST API ve modern web araçları.</div></details>
+    </div>
+  </div>
+</section>
+
+<section id="blog">
+  <div class="kap">
+    <div class="shead reveal"><span class="eyebrow" data-i18n="blog.eyebrow">Blog</span><h2 data-i18n="blog.h2">Yazılar &amp; notlar</h2><p data-i18n="blog.sub">Deneyimlerden kısa, faydalı yazılar — yakında.</p></div>
+    <div class="posts">
+      <a class="post reveal" href="#"><div class="pmeta"><span class="pcat" data-i18n="blog1.cat">Gerçek Zamanlı</span><span class="soon" data-i18n="blog.soon">Yakında</span></div><h3 data-i18n="blog1.title">WebSocket ile çok oyunculu sistem kurmak</h3><p data-i18n="blog1.desc">Senkron masa, kopmalara dayanıklı oturum ve ölçeklenebilir motor mimarisi üzerine notlar.</p></a>
+      <a class="post reveal" href="#"><div class="pmeta"><span class="pcat" data-i18n="blog2.cat">Performans</span><span class="soon" data-i18n="blog.soon">Yakında</span></div><h3 data-i18n="blog2.title">Web sitenizi hızlandırmanın 5 somut yolu</h3><p data-i18n="blog2.desc">Görsel, önbellek, kod bölme ve Core Web Vitals'ı yeşile çekmenin pratik yolları.</p></a>
+      <a class="post reveal" href="#"><div class="pmeta"><span class="pcat" data-i18n="blog3.cat">SEO</span><span class="soon" data-i18n="blog.soon">Yakında</span></div><h3 data-i18n="blog3.title">Küçük işletmeler için SEO temeli</h3><p data-i18n="blog3.desc">Google'da bulunmanın ilk adımları: teknik temel, içerik ve Search Console.</p></a>
     </div>
   </div>
 </section>
@@ -436,11 +528,21 @@
 <section id="iletisim">
   <div class="kap">
     <div class="cta reveal">
-      <span class="eyebrow">İletişim</span>
-      <h2>Bir sonraki projeni konuşalım</h2>
-      <p>Bir fikrin, projen veya ihtiyacın mı var? Kısaca anlat; sana en uygun çözümü birlikte planlayalım. Freelance ve uzaktan projelere açığız.</p>
+      <span class="eyebrow" data-i18n="ilet.eyebrow">İletişim</span>
+      <h2 data-i18n="ilet.h2">Bir sonraki projeni konuşalım</h2>
+      <p data-i18n="ilet.p">Bir fikrin, projen veya ihtiyacın mı var? Kısaca anlat; sana en uygun çözümü birlikte planlayalım. Freelance ve uzaktan projelere açığız.</p>
+      <form class="cform" id="cform" novalidate>
+        <div class="row2">
+          <input type="text" id="f_ad" placeholder="Adın" aria-label="Adın" data-i18n-ph="form.ph.ad">
+          <input type="email" id="f_mail" placeholder="E-postan" aria-label="E-postan" data-i18n-ph="form.ph.mail">
+        </div>
+        <textarea id="f_msg" placeholder="Projen / ihtiyacın hakkında kısaca..." aria-label="Mesaj" data-i18n-ph="form.ph.msg"></textarea>
+        <div class="ferr" id="f_err" data-i18n="form.err">Lütfen ad, geçerli e-posta ve mesaj gir.</div>
+        <button type="submit" class="btn ana" style="justify-content:center"><span data-i18n="form.btn">Gönder</span>
+          <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </form>
       <div class="baglar">
-        <a class="bag" href="mailto:chermantiastudio@gmail.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg> E-posta</a>
+        <a class="bag" href="mailto:chermantiastudio@gmail.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg> <span data-i18n="bag.email">E-posta</span></a>
         <a class="bag" href="https://www.linkedin.com/in/arventia-lab/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4"/></svg> LinkedIn</a>
         <a class="bag" href="https://github.com/arventia-lab" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 00-1.3-3.2 4.2 4.2 0 00-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 00-6.2 0C6.7 2.3 5.6 2.6 5.6 2.6a4.2 4.2 0 00-.1 3.2A4.6 4.6 0 004 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg> GitHub</a>
         <a class="bag" href="https://bionluk.com/muhammetgunes2" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg> Bionluk</a>
@@ -458,7 +560,7 @@
     <path d="M340 113 L349 122 L340 131 L331 122 Z" fill="none" stroke="#19e0d2" stroke-width="1.8"/>
     <circle cx="340" cy="122" r="1.9" fill="#19e0d2"/>
   </svg>
-  © 2026 Chermantia — Full-Stack Web, Gerçek Zamanlı Sistemler &amp; Otomasyon
+  <span data-i18n="footer.copy">© 2026 Chermantia — Full-Stack Web, Gerçek Zamanlı Sistemler &amp; Otomasyon</span>
 </footer>
 </div>
 
@@ -492,6 +594,165 @@
     }
     lenis.on('scroll',apply); apply();
   }
+</script>
+<script>
+(function(){
+  var f=document.getElementById('cform'); if(!f) return;
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ad=document.getElementById('f_ad').value.trim();
+    var mail=document.getElementById('f_mail').value.trim();
+    var msg=document.getElementById('f_msg').value.trim();
+    var err=document.getElementById('f_err');
+    if(!(ad && msg && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail))){ err.style.display='block'; return; }
+    err.style.display='none';
+    var sub=encodeURIComponent('Chermantia — '+ad);
+    var body=encodeURIComponent('Ad: '+ad+'\nE-posta: '+mail+'\n\n'+msg);
+    window.location.href='mailto:chermantiastudio@gmail.com?subject='+sub+'&body='+body;
+  });
+})();
+</script>
+<script>
+(function(){
+  var T={
+"nav.projeler":{tr:"Projeler",en:"Projects",de:"Projekte"},
+"nav.surec":{tr:"Süreç",en:"Process",de:"Prozess"},
+"nav.hizmetler":{tr:"Hizmetler",en:"Services",de:"Leistungen"},
+"nav.hakkimizda":{tr:"Hakkımızda",en:"About",de:"Über uns"},
+"nav.sss":{tr:"SSS",en:"FAQ",de:"FAQ"},
+"nav.iletisim":{tr:"İletişim",en:"Contact",de:"Kontakt"},
+"hero.chip":{tr:"Freelance &amp; uzaktan projelere açık",en:"Open to freelance &amp; remote projects",de:"Offen für Freelance- &amp; Remote-Projekte"},
+"hero.h1":{tr:"Fikirden<br><span class=\"ggrad\">canlı ürüne</span>",en:"From idea<br><span class=\"ggrad\">to live product</span>",de:"Von der Idee<br><span class=\"ggrad\">zum Live-Produkt</span>"},
+"hero.sub":{tr:"<b>Chermantia</b> — full-stack web, gerçek zamanlı sistemler ve otomasyon üzerine bağımsız bir yazılım stüdyosu. Veritabanından arayüze, uçtan uca inşa ederiz.",en:"<b>Chermantia</b> — an independent software studio for full-stack web, real-time systems and automation. From database to interface, we build end to end.",de:"<b>Chermantia</b> — ein unabhängiges Software-Studio für Full-Stack-Web, Echtzeitsysteme und Automatisierung. Von der Datenbank bis zur Oberfläche bauen wir Ende-zu-Ende."},
+"hero.btn1":{tr:"İşlere Bak",en:"View Work",de:"Projekte ansehen"},
+"hero.btn2":{tr:"İletişime Geç",en:"Get in Touch",de:"Kontakt aufnehmen"},
+"hero.stat1":{tr:"yıl deneyim",en:"years experience",de:"Jahre Erfahrung"},
+"hero.stat2":{tr:"uçtan uca geliştirme",en:"end-to-end development",de:"Ende-zu-Ende-Entwicklung"},
+"hero.stat3":{tr:"WebSocket &amp; çok oyunculu",en:"WebSocket &amp; multiplayer",de:"WebSocket &amp; Multiplayer"},
+"hero.cue":{tr:"kaydır",en:"scroll",de:"scrollen"},
+"proj.eyebrow":{tr:"Portföy",en:"Portfolio",de:"Portfolio"},
+"proj.h2":{tr:"Uçtan uca geliştirdiğimiz işler",en:"Work we built end to end",de:"Projekte, die wir Ende-zu-Ende gebaut haben"},
+"proj.sub":{tr:"Tasarımdan veritabanına, canlıya alınmış gerçek çalışmalar.",en:"Real, shipped work — from design to database.",de:"Echte, live gegangene Arbeiten — vom Design bis zur Datenbank."},
+"proj1.title":{tr:"Payout Review",en:"Payout Review",de:"Payout Review"},
+"proj1.desc":{tr:"Tarayıcıda çalışan fraud &amp; risk inceleme aracı. CSV yükleyip hesap bazında risk skoru üretir — entegrasyon gerektirmez, veri tarayıcıdan çıkmaz.",en:"Browser-based fraud &amp; risk review tool. Upload a CSV and it scores risk per account — no integration, data never leaves the browser.",de:"Browserbasiertes Fraud- &amp; Risiko-Tool. CSV hochladen und es bewertet das Risiko pro Konto — keine Integration, Daten verlassen nie den Browser."},
+"proj2.title":{tr:"Çok Oyunculu Okey &amp; Batak",en:"Multiplayer Okey &amp; Batak",de:"Multiplayer Okey &amp; Batak"},
+"proj2.desc":{tr:"WebSocket ile gerçek zamanlı çok oyunculu oyun sunucuları (düz / cezalı / 101 okey, batak). Yapılandırılabilir oyun motorları, bot rakipler, canlı masa.",en:"Real-time multiplayer game servers over WebSocket (plain / penalty / 101 okey, batak). Configurable game engines, bot opponents, live table.",de:"Echtzeit-Multiplayer-Spielserver über WebSocket (normal / Straf / 101 Okey, Batak). Konfigurierbare Engines, Bot-Gegner, Live-Tisch."},
+"proj3.title":{tr:"Full-Stack Web Uygulamaları",en:"Full-Stack Web Apps",de:"Full-Stack-Web-Apps"},
+"proj3.desc":{tr:"Bun + TypeScript ile uçtan uca web uygulamaları: kullanıcı/oturum yönetimi, SQLite veritabanı, REST + WebSocket API ve yönetim paneli. İhtiyaca özel panel ve otomasyon.",en:"End-to-end web apps with Bun + TypeScript: user/session management, SQLite database, REST + WebSocket API and admin panel. Custom panels and automation.",de:"Ende-zu-Ende-Web-Apps mit Bun + TypeScript: Benutzer-/Session-Verwaltung, SQLite-Datenbank, REST- + WebSocket-API und Admin-Panel. Individuelle Panels und Automatisierung."},
+"pill.dataanalysis":{tr:"Veri Analizi",en:"Data Analysis",de:"Datenanalyse"},
+"link.live":{tr:"Canlı Gör",en:"View Live",de:"Live ansehen"},
+"link.bionluk":{tr:"Bionluk'ta Gör",en:"View on Bionluk",de:"Auf Bionluk ansehen"},
+"vaka.eyebrow":{tr:"Vaka Çalışmaları",en:"Case Studies",de:"Fallstudien"},
+"vaka.h2":{tr:"Yakından: nasıl çözdük",en:"Up close: how we solved it",de:"Im Detail: wie wir es gelöst haben"},
+"vaka.sub":{tr:"Birkaç işi hedef, yaklaşım ve sonucuyla açtık.",en:"A few projects, broken down by goal, approach and result.",de:"Einige Projekte, aufgeschlüsselt nach Ziel, Ansatz und Ergebnis."},
+"vaka.goal":{tr:"Hedef",en:"Goal",de:"Ziel"},
+"vaka.approach":{tr:"Yaklaşım",en:"Approach",de:"Ansatz"},
+"vaka.result":{tr:"Sonuç",en:"Result",de:"Ergebnis"},
+"case1.goal":{tr:"Ödeme/çekim işlemlerinde riskli hesapları, veriyi dışarı çıkarmadan hızlıca ayıklamak.",en:"Quickly flag risky accounts in payout/withdrawal flows — without data ever leaving the device.",de:"Riskante Konten in Auszahlungs-Flows schnell markieren — ohne dass Daten das Gerät verlassen."},
+"case1.approach":{tr:"Tamamen tarayıcıda çalışan, CSV yükleyip hesap bazında kural motoruyla risk skoru üreten bir araç geliştirdik — sunucu ya da entegrasyon gerektirmez.",en:"We built a fully browser-based tool that ingests a CSV and scores risk per account via a rule engine — no server or integration needed.",de:"Wir bauten ein vollständig browserbasiertes Tool, das eine CSV einliest und das Risiko pro Konto über eine Regel-Engine bewertet — kein Server oder Integration nötig."},
+"case1.result":{tr:"Veri gizliliği korunarak (hiçbir şey tarayıcıdan çıkmaz) yüzlerce kaydın manuel incelemesi dakikalara indi.",en:"With privacy preserved (nothing leaves the browser), manual review of hundreds of records dropped to minutes.",de:"Unter Wahrung des Datenschutzes (nichts verlässt den Browser) sank die manuelle Prüfung hunderter Datensätze auf Minuten."},
+"case2.tag":{tr:"Gerçek Zamanlı Oyun",en:"Real-Time Gaming",de:"Echtzeit-Gaming"},
+"case2.goal":{tr:"Birden fazla oyuncunun aynı masada gecikmesiz, senkron oynayabildiği bir oyun platformu.",en:"A game platform where multiple players play in sync at the same table, with no lag.",de:"Eine Plattform, auf der mehrere Spieler ohne Verzögerung synchron am selben Tisch spielen."},
+"case2.approach":{tr:"WebSocket üzerinde gerçek zamanlı sunucular; yapılandırılabilir oyun motorları (düz / cezalı / 101 okey, batak), bot rakipler ve canlı masa durumu.",en:"Real-time servers over WebSocket; configurable game engines (plain / penalty / 101 okey, batak), bot opponents and live table state.",de:"Echtzeit-Server über WebSocket; konfigurierbare Engines (normal / Straf / 101 Okey, Batak), Bot-Gegner und Live-Tischstatus."},
+"case2.result":{tr:"Anlık senkron masa, kopmalara dayanıklı oturum yönetimi ve kolayca yeni mod eklenebilen esnek motor mimarisi.",en:"Instantly synced tables, disconnect-resilient session management and a flexible engine architecture that makes adding new modes easy.",de:"Sofort synchronisierte Tische, ausfallsichere Session-Verwaltung und eine flexible Engine-Architektur für einfache neue Modi."},
+"surec.eyebrow":{tr:"Süreç",en:"Process",de:"Prozess"},
+"surec.h2":{tr:"Fikirden teslime, net bir süreç",en:"A clear process, from idea to delivery",de:"Ein klarer Prozess, von der Idee bis zur Lieferung"},
+"surec.sub":{tr:"Her projede şeffaf, adım adım ilerleriz — sürpriz yok.",en:"We move transparently, step by step — no surprises.",de:"Wir arbeiten transparent, Schritt für Schritt — keine Überraschungen."},
+"step1.t":{tr:"Keşif",en:"Discovery",de:"Entdeckung"},
+"step1.d":{tr:"İhtiyacını dinler, hedefi ve kapsamı birlikte netleştiririz.",en:"We listen to your needs and define the goal and scope together.",de:"Wir hören zu und definieren Ziel und Umfang gemeinsam."},
+"step2.t":{tr:"Teklif &amp; Plan",en:"Quote &amp; Plan",de:"Angebot &amp; Plan"},
+"step2.d":{tr:"Şeffaf fiyat ve net bir zaman çizelgesi çıkarırız.",en:"We set a transparent price and a clear timeline.",de:"Wir legen einen transparenten Preis und klaren Zeitplan fest."},
+"step3.t":{tr:"Geliştirme",en:"Development",de:"Entwicklung"},
+"step3.d":{tr:"Uçtan uca kodlar, düzenli güncellemeyle ilerlemeyi gösteririz.",en:"We code end to end and show progress with regular updates.",de:"Wir programmieren Ende-zu-Ende und zeigen Fortschritt mit regelmäßigen Updates."},
+"step4.t":{tr:"Test &amp; Teslim",en:"Test &amp; Delivery",de:"Test &amp; Lieferung"},
+"step4.d":{tr:"Test eder, canlıya alır, kısa bir kullanım anlatımı veririz.",en:"We test, go live and give a short walkthrough.",de:"Wir testen, gehen live und geben eine kurze Einweisung."},
+"step5.t":{tr:"Destek",en:"Support",de:"Support"},
+"step5.d":{tr:"Teslimden sonra da yanındayız; takıldığın yerde buradayız.",en:"We're with you after delivery; we're here when you get stuck.",de:"Wir sind auch nach der Lieferung für dich da."},
+"hiz.eyebrow":{tr:"Hizmetler",en:"Services",de:"Leistungen"},
+"hiz.h2":{tr:"Birlikte çalışalım",en:"Let's work together",de:"Lass uns zusammenarbeiten"},
+"hiz.sub":{tr:"Bionluk üzerinden sipariş verebilir ya da doğrudan yazabilirsin.",en:"Order via Bionluk or just reach out directly.",de:"Bestelle über Bionluk oder melde dich direkt."},
+"hiz1.title":{tr:"Excel &amp; Google Sheets Otomasyonu",en:"Excel &amp; Google Sheets Automation",de:"Excel- &amp; Google-Sheets-Automatisierung"},
+"hiz1.desc":{tr:"Tekrarlayan işleri otomatikleştir: formül/makro/script ile otomatik hesaplama, raporlama, veri temizleme ve birleştirme.",en:"Automate repetitive work: formulas/macros/scripts for automatic calculation, reporting, data cleaning and merging.",de:"Automatisiere wiederkehrende Aufgaben: Formeln/Makros/Skripte für Berechnung, Reporting, Datenbereinigung und -zusammenführung."},
+"hiz1.price":{tr:"250 TL'den başlayan",en:"from 250 TL",de:"ab 250 TL"},
+"hiz2.title":{tr:"Web Sitesi &amp; Web Uygulaması",en:"Website &amp; Web App",de:"Website &amp; Web-App"},
+"hiz2.desc":{tr:"İhtiyacına özel kodlanmış, mobil uyumlu ve hızlı web siteleri ile web uygulamaları. Kurumsal site, landing, panel ve daha fazlası.",en:"Custom-coded, mobile-friendly and fast websites and web apps. Corporate sites, landing pages, panels and more.",de:"Individuell programmierte, mobilfreundliche und schnelle Websites und Web-Apps. Unternehmensseiten, Landingpages, Panels und mehr."},
+"hiz2.price":{tr:"750 TL'den başlayan",en:"from 750 TL",de:"ab 750 TL"},
+"yet.eyebrow":{tr:"Yetenekler",en:"Skills",de:"Fähigkeiten"},
+"yet.h2":{tr:"Kullandığımız teknolojiler",en:"Technologies we use",de:"Technologien, die wir nutzen"},
+"yet.sub":{tr:"Uzmanlık alanlarımız ve araç setimiz.",en:"Our areas of expertise and toolset.",de:"Unsere Fachgebiete und unser Toolset."},
+"skill.realtime":{tr:"Gerçek Zamanlı Sistemler",en:"Real-Time Systems",de:"Echtzeitsysteme"},
+"skill.fullstack":{tr:"Full-Stack Geliştirme",en:"Full-Stack Development",de:"Full-Stack-Entwicklung"},
+"skill.fraud":{tr:"Fraud &amp; Risk Analizi",en:"Fraud &amp; Risk Analysis",de:"Fraud- &amp; Risikoanalyse"},
+"skill.automation":{tr:"Otomasyon",en:"Automation",de:"Automatisierung"},
+"hak.eyebrow":{tr:"Hakkımızda",en:"About",de:"Über uns"},
+"hak.h2":{tr:"Tek kişilik güç, stüdyo disiplini",en:"One-person power, studio discipline",de:"Ein-Personen-Kraft, Studio-Disziplin"},
+"hak.p1":{tr:"Chermantia, <b>Muhammet Güneş</b> tarafından kurulan bağımsız bir yazılım stüdyosudur. 5+ yıldır full-stack web, gerçek zamanlı çok oyunculu sistemler ve otomasyon üzerine çalışıyorum — fikirden canlı ürüne, veritabanından arayüze uçtan uca.",en:"Chermantia is an independent software studio founded by <b>Muhammet Güneş</b>. For 5+ years I've worked on full-stack web, real-time multiplayer systems and automation — from idea to live product, from database to interface, end to end.",de:"Chermantia ist ein unabhängiges Software-Studio, gegründet von <b>Muhammet Güneş</b>. Seit über 5 Jahren arbeite ich an Full-Stack-Web, Echtzeit-Multiplayer-Systemen und Automatisierung — von der Idee zum Live-Produkt, Ende-zu-Ende."},
+"hak.p2":{tr:"Büyük ekip yok; <b>doğrudan geliştiriciyle</b> çalışırsın. Bu da hızlı iletişim, şeffaf süreç ve işin sahibiyle birebir temas demek. Freelance ve uzaktan projelere açığım.",en:"No big team; you work <b>directly with the developer</b>. That means fast communication, a transparent process and direct contact with the person doing the work. I'm open to freelance and remote projects.",de:"Kein großes Team; du arbeitest <b>direkt mit dem Entwickler</b>. Das bedeutet schnelle Kommunikation, einen transparenten Prozess und direkten Kontakt. Ich bin offen für Freelance- und Remote-Projekte."},
+"hak.v1":{tr:"Dürüst iletişim",en:"Honest communication",de:"Ehrliche Kommunikation"},
+"hak.v2":{tr:"Şeffaf fiyat",en:"Transparent pricing",de:"Transparente Preise"},
+"hak.v3":{tr:"Temiz kod",en:"Clean code",de:"Sauberer Code"},
+"hak.v4":{tr:"Zamanında teslim",en:"On-time delivery",de:"Pünktliche Lieferung"},
+"hak.card2":{tr:"Uçtan uca",en:"End to end",de:"Ende-zu-Ende"},
+"hak.card2l":{tr:"tasarımdan sunucuya tek elden",en:"from design to server, single-handed",de:"vom Design bis zum Server, aus einer Hand"},
+"hak.card3":{tr:"Uzaktan",en:"Remote",de:"Remote"},
+"hak.card3l":{tr:"Türkiye &amp; global, async çalışma",en:"Turkey &amp; global, async work",de:"Türkei &amp; global, asynchrone Arbeit"},
+"sss.eyebrow":{tr:"SSS",en:"FAQ",de:"FAQ"},
+"sss.h2":{tr:"Sık sorulan sorular",en:"Frequently asked questions",de:"Häufig gestellte Fragen"},
+"sss.sub":{tr:"Aklındaki ilk soruların yanıtı.",en:"Answers to your first questions.",de:"Antworten auf deine ersten Fragen."},
+"q1":{tr:"Hangi tür projeler yapıyorsunuz?",en:"What kind of projects do you do?",de:"Welche Art von Projekten macht ihr?"},
+"a1":{tr:"Web siteleri ve web uygulamaları, gerçek zamanlı sistemler (WebSocket), otomasyon ve veri/araç geliştirme. Kurumsal siteden özel panellere kadar geniş bir yelpaze.",en:"Websites and web apps, real-time systems (WebSocket), automation and data/tool development. From corporate sites to custom panels, a wide range.",de:"Websites und Web-Apps, Echtzeitsysteme (WebSocket), Automatisierung und Daten-/Tool-Entwicklung. Von Unternehmensseiten bis zu individuellen Panels, ein breites Spektrum."},
+"q2":{tr:"Fiyatlandırma nasıl işliyor?",en:"How does pricing work?",de:"Wie funktioniert die Preisgestaltung?"},
+"a2":{tr:"Her proje kapsamına göre fiyatlanır. Küçük işler birkaç yüz TL'den başlar; kapsamı netleştirip sabit, şeffaf bir teklif veririz — sürpriz maliyet yok.",en:"Each project is priced by scope. Small jobs start from a few hundred TL; we clarify the scope and give a fixed, transparent quote — no surprise costs.",de:"Jedes Projekt wird nach Umfang berechnet. Kleine Aufträge beginnen ab einigen hundert TL; wir klären den Umfang und geben ein festes, transparentes Angebot — keine versteckten Kosten."},
+"q3":{tr:"Ne kadar sürede teslim edersiniz?",en:"How long does delivery take?",de:"Wie lange dauert die Lieferung?"},
+"a3":{tr:"İşin boyutuna bağlı: bir landing birkaç gün, kapsamlı bir uygulama birkaç hafta. Başta net bir zaman çizelgesi paylaşırız.",en:"Depends on size: a landing page a few days, a full app a few weeks. We share a clear timeline upfront.",de:"Hängt von der Größe ab: eine Landingpage wenige Tage, eine komplette App einige Wochen. Wir teilen vorab einen klaren Zeitplan."},
+"q4":{tr:"Uzaktan mı çalışıyorsunuz?",en:"Do you work remotely?",de:"Arbeitet ihr remote?"},
+"a4":{tr:"Evet, tamamen uzaktan ve çoğunlukla yazılı/async iletişimle. Türkiye ve yurt dışı projelerine açığız.",en:"Yes, fully remote and mostly via written/async communication. Open to projects in Turkey and abroad.",de:"Ja, vollständig remote und meist über schriftliche/asynchrone Kommunikation. Offen für Projekte in der Türkei und im Ausland."},
+"q5":{tr:"Teslimden sonra destek veriyor musunuz?",en:"Do you offer support after delivery?",de:"Bietet ihr Support nach der Lieferung?"},
+"a5":{tr:"Evet. Teslim sonrası kısa kullanım anlatımı, küçük düzeltmeler ve takıldığın noktalarda destek dahildir.",en:"Yes. A short walkthrough, minor fixes and support where you get stuck are included after delivery.",de:"Ja. Eine kurze Einweisung, kleine Korrekturen und Support bei Problemen sind nach der Lieferung inbegriffen."},
+"q6":{tr:"Hangi teknolojileri kullanıyorsunuz?",en:"Which technologies do you use?",de:"Welche Technologien nutzt ihr?"},
+"a6":{tr:"Node.js, TypeScript, Bun, WebSocket, React, SQLite/SQL, REST API ve modern web araçları.",en:"Node.js, TypeScript, Bun, WebSocket, React, SQLite/SQL, REST API and modern web tools.",de:"Node.js, TypeScript, Bun, WebSocket, React, SQLite/SQL, REST-API und moderne Web-Tools."},
+"blog.eyebrow":{tr:"Blog",en:"Blog",de:"Blog"},
+"blog.h2":{tr:"Yazılar &amp; notlar",en:"Articles &amp; notes",de:"Artikel &amp; Notizen"},
+"blog.sub":{tr:"Deneyimlerden kısa, faydalı yazılar — yakında.",en:"Short, useful posts from experience — coming soon.",de:"Kurze, nützliche Beiträge aus der Praxis — bald."},
+"blog.soon":{tr:"Yakında",en:"Soon",de:"Bald"},
+"blog1.cat":{tr:"Gerçek Zamanlı",en:"Real-Time",de:"Echtzeit"},
+"blog1.title":{tr:"WebSocket ile çok oyunculu sistem kurmak",en:"Building a multiplayer system with WebSocket",de:"Ein Multiplayer-System mit WebSocket bauen"},
+"blog1.desc":{tr:"Senkron masa, kopmalara dayanıklı oturum ve ölçeklenebilir motor mimarisi üzerine notlar.",en:"Notes on synced tables, disconnect-resilient sessions and scalable engine architecture.",de:"Notizen zu synchronisierten Tischen, ausfallsicheren Sessions und skalierbarer Engine-Architektur."},
+"blog2.cat":{tr:"Performans",en:"Performance",de:"Performance"},
+"blog2.title":{tr:"Web sitenizi hızlandırmanın 5 somut yolu",en:"5 concrete ways to speed up your website",de:"5 konkrete Wege, deine Website zu beschleunigen"},
+"blog2.desc":{tr:"Görsel, önbellek, kod bölme ve Core Web Vitals'ı yeşile çekmenin pratik yolları.",en:"Practical ways to handle images, caching, code splitting and get Core Web Vitals green.",de:"Praktische Wege für Bilder, Caching, Code-Splitting und grüne Core Web Vitals."},
+"blog3.cat":{tr:"SEO",en:"SEO",de:"SEO"},
+"blog3.title":{tr:"Küçük işletmeler için SEO temeli",en:"SEO basics for small businesses",de:"SEO-Grundlagen für kleine Unternehmen"},
+"blog3.desc":{tr:"Google'da bulunmanın ilk adımları: teknik temel, içerik ve Search Console.",en:"First steps to being found on Google: technical foundation, content and Search Console.",de:"Erste Schritte, um bei Google gefunden zu werden: technische Basis, Inhalte und Search Console."},
+"ilet.eyebrow":{tr:"İletişim",en:"Contact",de:"Kontakt"},
+"ilet.h2":{tr:"Bir sonraki projeni konuşalım",en:"Let's talk about your next project",de:"Lass uns über dein nächstes Projekt sprechen"},
+"ilet.p":{tr:"Bir fikrin, projen veya ihtiyacın mı var? Kısaca anlat; sana en uygun çözümü birlikte planlayalım. Freelance ve uzaktan projelere açığız.",en:"Got an idea, a project or a need? Tell me briefly and we'll plan the best solution together. Open to freelance and remote projects.",de:"Hast du eine Idee, ein Projekt oder einen Bedarf? Erzähl es kurz und wir planen gemeinsam die beste Lösung. Offen für Freelance- und Remote-Projekte."},
+"form.ph.ad":{tr:"Adın",en:"Your name",de:"Dein Name"},
+"form.ph.mail":{tr:"E-postan",en:"Your email",de:"Deine E-Mail"},
+"form.ph.msg":{tr:"Projen / ihtiyacın hakkında kısaca...",en:"Briefly about your project / need...",de:"Kurz zu deinem Projekt / Bedarf..."},
+"form.err":{tr:"Lütfen ad, geçerli e-posta ve mesaj gir.",en:"Please enter a name, valid email and message.",de:"Bitte Name, gültige E-Mail und Nachricht eingeben."},
+"form.btn":{tr:"Gönder",en:"Send",de:"Senden"},
+"bag.email":{tr:"E-posta",en:"Email",de:"E-Mail"},
+"footer.copy":{tr:"© 2026 Chermantia — Full-Stack Web, Gerçek Zamanlı Sistemler &amp; Otomasyon",en:"© 2026 Chermantia — Full-Stack Web, Real-Time Systems &amp; Automation",de:"© 2026 Chermantia — Full-Stack-Web, Echtzeitsysteme &amp; Automatisierung"}
+  };
+  function apply(l){
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k=el.getAttribute('data-i18n'); if(T[k]&&T[k][l]!=null) el.innerHTML=T[k][l];
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
+      var k=el.getAttribute('data-i18n-ph'); if(T[k]&&T[k][l]!=null){ el.setAttribute('placeholder',T[k][l]); el.setAttribute('aria-label',T[k][l]); }
+    });
+    document.documentElement.lang=l;
+    document.querySelectorAll('.langsw button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang')===l); });
+    try{ localStorage.setItem('lang',l); }catch(e){}
+  }
+  var saved='tr'; try{ saved=localStorage.getItem('lang')||'tr'; }catch(e){}
+  if(!/^(tr|en|de)$/.test(saved)) saved='tr';
+  document.querySelectorAll('.langsw button').forEach(function(b){
+    b.addEventListener('click',function(){ apply(b.getAttribute('data-lang')); });
+  });
+  apply(saved);
+})();
 </script>
 </body>
 </html>
