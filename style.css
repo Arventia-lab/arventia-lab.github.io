@@ -293,3 +293,20 @@ html.lenis,html.lenis body{height:auto}
 .archlegend span{display:inline-flex;align-items:center;gap:7px}
 .archlegend i{width:9px;height:9px;border-radius:50%;display:inline-block}
 @media(prefers-reduced-motion:reduce){.arch .dot{display:none}}
+/* müsaitlik rozeti + güven şeridi */
+.availbadge{display:inline-flex;align-items:center;gap:11px;background:rgba(34,211,165,.08);border:1px solid rgba(34,211,165,.32);border-radius:999px;padding:10px 20px}
+.availbadge .adot{width:10px;height:10px;border-radius:50%;background:#22d3a5;box-shadow:0 0 12px #22d3a5;animation:pulse 2s infinite;flex:0 0 auto}
+.availbadge b{color:#8ff0d6;font-weight:700;font-size:.94rem}
+.availbadge em{color:var(--soft);font-size:.85rem;font-style:normal}
+@media(max-width:480px){.availbadge{flex-wrap:wrap;border-radius:16px}}
+.trustgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:16px}
+.titem{display:flex;gap:14px;align-items:flex-start;background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:16px;padding:22px;transition:.2s}
+.titem:hover{border-color:rgba(31,224,200,.4);transform:translateY(-4px)}
+.titem .tico{flex:0 0 auto;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(31,224,200,.1);border:1px solid rgba(31,224,200,.25);color:var(--teal)}
+.titem .tico svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.titem h3{font-size:1.04rem;font-weight:700;margin-bottom:5px}
+.titem p{color:var(--soft);font-size:.9rem;line-height:1.5}
+.trustgrid>.reveal:nth-child(2){transition-delay:.06s}
+.trustgrid>.reveal:nth-child(3){transition-delay:.12s}
+.trustgrid>.reveal:nth-child(5){transition-delay:.06s}
+.trustgrid>.reveal:nth-child(6){transition-delay:.12s}
