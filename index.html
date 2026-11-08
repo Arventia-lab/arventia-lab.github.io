@@ -4,22 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chermantia — Yazılım Stüdyosu · Full-Stack Web & Otomasyon</title>
-<meta name="description" content="Full-stack web geliştirme, gerçek zamanlı çok oyunculu sistemler ve fraud/risk analizi. Projeler, hizmetler ve iletişim.">
+<meta name="description" content="Chermantia — full-stack web geliştirme, gerçek zamanlı sistemler ve otomasyon üzerine bağımsız yazılım stüdyosu. Projeler, hizmetler ve iletişim.">
 <meta name="author" content="Chermantia">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Chermantia — Yazılım Stüdyosu · Full-Stack Web & Otomasyon">
-<meta property="og:description" content="Full-stack web geliştirme, gerçek zamanlı çok oyunculu sistemler ve fraud/risk analizi. Projeler, hizmetler ve iletişim.">
+<meta property="og:description" content="Full-stack web geliştirme, gerçek zamanlı sistemler ve otomasyon üzerine bağımsız bir yazılım stüdyosu.">
 <meta property="og:url" content="https://arventia-lab.github.io/">
 <meta property="og:image" content="https://arventia-lab.github.io/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Chermantia — Yazılım Stüdyosu · Full-Stack Web & Otomasyon">
-<meta name="twitter:description" content="Full-stack web geliştirme, gerçek zamanlı çok oyunculu sistemler ve fraud/risk analizi.">
+<meta name="twitter:description" content="Full-stack web geliştirme, gerçek zamanlı sistemler ve otomasyon üzerine bağımsız bir yazılım stüdyosu.">
 <meta name="twitter:image" content="https://arventia-lab.github.io/og.png">
 <link rel="canonical" href="https://arventia-lab.github.io/">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#0b0e14">
+<meta name="theme-color" content="#05070f">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -39,175 +39,247 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0b0e14; --bg2:#11151f; --card:#141a26; --line:#222a3a;
-    --txt:#eef2f8; --soft:#aab4c6; --dim:#6f7b91;
-    --acc:#ff8a2b; --acc2:#22d3ee; --grad:linear-gradient(100deg,#ff9a3c,#ff7a1a);
+    --bg:#05070f; --bg2:#080b16; --panel:#0c1020; --panel2:#0f1426;
+    --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+    --txt:#eaf1f6; --soft:#9fb0bd; --dim:#64748b;
+    --teal:#1fe0c8; --teal2:#12b8d8; --mag:#e24bd1; --vio:#7c5cff; --gold:#ffce6b;
+    --glow:0 0 40px rgba(31,224,200,.35);
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:"Inter",system-ui,Arial,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;overflow-x:hidden}
-  h1,h2,h3,.disp{font-family:"Sora",sans-serif;letter-spacing:-.02em}
+  body{font-family:"DM Sans",system-ui,Arial,sans-serif;background:var(--bg);color:var(--txt);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.disp{font-family:"Space Grotesk",sans-serif;letter-spacing:-.02em;line-height:1.05}
   a{color:inherit;text-decoration:none}
-  .kap{max-width:1080px;margin:0 auto;padding:0 24px}
-  .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .kap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:"Space Grotesk";font-weight:600;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--teal)}
+  .teal{color:var(--teal)} .mag{color:var(--mag)}
+  .ggrad{background:linear-gradient(100deg,var(--teal),var(--teal2) 45%,var(--vio));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* animated neon field */
+  .field{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+  .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;mix-blend-mode:screen;animation:drift 22s ease-in-out infinite}
+  .b1{width:540px;height:540px;background:radial-gradient(circle,rgba(31,224,200,.9),transparent 65%);top:-160px;right:-120px}
+  .b2{width:620px;height:620px;background:radial-gradient(circle,rgba(124,92,255,.8),transparent 65%);top:260px;left:-220px;animation-delay:-7s}
+  .b3{width:460px;height:460px;background:radial-gradient(circle,rgba(226,75,209,.7),transparent 65%);bottom:-160px;right:10%;animation-delay:-13s}
+  @keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,-30px) scale(1.12)}}
+  .streak{position:absolute;inset:0;background:
+    linear-gradient(115deg,transparent 42%,rgba(31,224,200,.07) 46%,transparent 50%),
+    linear-gradient(115deg,transparent 60%,rgba(226,75,209,.06) 64%,transparent 68%)}
+  @media(prefers-reduced-motion:reduce){.blob{animation:none}}
+  .wrap{position:relative;z-index:1}
 
   /* NAV */
-  nav{position:sticky;top:0;z-index:50;background:rgba(11,14,20,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-  nav .kap{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .logo{font-family:"Sora";font-weight:800;font-size:1.1rem}
-  .logo b{color:var(--acc)}
-  .nav-link{color:var(--soft);font-weight:500;margin-left:26px;font-size:.95rem;transition:.15s}
+  nav{position:sticky;top:0;z-index:60;background:rgba(5,7,15,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  nav .kap{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{display:flex;align-items:center;gap:11px;font-family:"Space Grotesk";font-weight:700;font-size:1.18rem;letter-spacing:-.01em}
+  .mark{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--teal),var(--vio));display:grid;place-items:center;box-shadow:var(--glow);position:relative}
+  .mark::after{content:"";position:absolute;width:12px;height:12px;border-radius:4px;background:var(--bg)}
+  .mark::before{content:"";position:absolute;width:6px;height:6px;border-radius:50%;background:var(--teal);z-index:1;box-shadow:0 0 10px var(--teal)}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-link{color:var(--soft);font-weight:500;font-size:.95rem;transition:.15s}
   .nav-link:hover{color:var(--txt)}
-  .nav-links{display:flex;align-items:center}
-  @media(max-width:680px){.nav-links{display:none}}
+  .nav-cta{padding:9px 18px;border-radius:10px;background:linear-gradient(100deg,var(--teal),var(--teal2));color:#032420;font-weight:700;font-size:.9rem;box-shadow:0 8px 24px rgba(31,224,200,.25)}
+  .nav-cta:hover{transform:translateY(-1px)}
+  @media(max-width:760px){.nav-links .nav-link{display:none}}
+
+  /* BTN */
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:13px;font-weight:700;font-size:1rem;font-family:"Space Grotesk";transition:.18s;cursor:pointer}
+  .btn.ana{background:linear-gradient(100deg,var(--teal),var(--teal2));color:#032420;box-shadow:0 12px 34px rgba(31,224,200,.32)}
+  .btn.ana:hover{transform:translateY(-2px);box-shadow:0 16px 42px rgba(31,224,200,.5)}
+  .btn.hyl{border:1px solid var(--line2);color:var(--txt);background:rgba(255,255,255,.02)}
+  .btn.hyl:hover{border-color:var(--teal);background:rgba(31,224,200,.06)}
+  .ic{width:20px;height:20px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
 
   /* HERO */
-  .hero{position:relative;padding:92px 0 72px;overflow:hidden}
-  .hero::before{content:"";position:absolute;inset:0;z-index:0;background:
-    radial-gradient(760px 420px at 78% -10%,rgba(255,138,43,.20),transparent 60%),
-    radial-gradient(620px 400px at 8% 110%,rgba(34,211,238,.12),transparent 60%)}
-  .hero .kap{position:relative;z-index:1}
-  .et{display:inline-flex;align-items:center;gap:9px;background:rgba(255,138,43,.1);border:1px solid rgba(255,138,43,.35);color:#ffc890;padding:7px 15px;border-radius:999px;font-size:.8rem;font-weight:600;letter-spacing:.06em}
-  .et .dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 10px #22c55e}
-  h1.ad{font-size:clamp(2.6rem,7vw,4.4rem);font-weight:800;line-height:1.02;margin:22px 0 6px}
-  .rol{font-size:clamp(1.1rem,2.6vw,1.5rem);font-weight:600;color:var(--soft)}
-  .rol b{color:var(--acc2)}
-  .ozet{max-width:620px;color:var(--soft);margin:20px 0 30px;font-size:1.05rem}
-  .btns{display:flex;flex-wrap:wrap;gap:14px}
-  .btn{display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border-radius:12px;font-weight:600;font-size:.98rem;transition:.18s;cursor:pointer}
-  .btn.ana{background:var(--grad);color:#1a0d03;box-shadow:0 10px 28px rgba(255,138,43,.3)}
-  .btn.ana:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(255,138,43,.45)}
-  .btn.hyl{border:1px solid var(--line);color:var(--txt)}
-  .btn.hyl:hover{border-color:var(--acc);background:rgba(255,138,43,.06)}
-  .istat{display:flex;gap:40px;margin-top:46px;flex-wrap:wrap}
-  .istat .n{font-family:"Sora";font-weight:800;font-size:1.9rem}
-  .istat .l{color:var(--dim);font-size:.85rem}
+  .hero{position:relative;padding:104px 0 96px;overflow:hidden}
+  .hero .kap{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+  .chip{display:inline-flex;align-items:center;gap:9px;background:rgba(31,224,200,.08);border:1px solid rgba(31,224,200,.3);color:#b7f3ea;padding:8px 16px;border-radius:999px;font-size:.82rem;font-weight:600}
+  .chip .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 12px var(--teal);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  h1.hbas{font-size:clamp(2.7rem,6.4vw,4.6rem);font-weight:700;text-transform:uppercase;margin:22px 0 0}
+  .hsub{font-size:clamp(1.05rem,2.2vw,1.22rem);color:var(--soft);max-width:540px;margin:22px 0 32px}
+  .hsub b{color:var(--txt);font-weight:600}
+  .hbtns{display:flex;flex-wrap:wrap;gap:14px}
+  .istat{display:flex;gap:34px;margin-top:52px;flex-wrap:wrap}
+  .istat .n{font-family:"Space Grotesk";font-weight:700;font-size:1.7rem}
+  .istat .l{color:var(--dim);font-size:.82rem;letter-spacing:.02em}
+  /* code window */
+  .codewrap{position:relative;display:grid;place-items:center;min-height:360px}
+  .codewin{width:100%;max-width:450px;background:linear-gradient(180deg,#0c1124,#070a14);border:1px solid var(--line2);border-radius:16px;overflow:hidden;box-shadow:0 34px 90px rgba(0,0,0,.6),0 0 56px rgba(31,224,200,.12);animation:float 6s ease-in-out infinite}
+  .codewin .bar{display:flex;align-items:center;gap:8px;padding:13px 16px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02)}
+  .codewin .bar i{width:11px;height:11px;border-radius:50%;display:inline-block}
+  .bar .r{background:#ff5f57}.bar .y{background:#ffbd2e}.bar .g{background:#28c840}
+  .codewin .bar em{margin-left:6px;font-style:normal;font-size:.76rem;color:var(--dim);font-family:ui-monospace,Menlo,Consolas,monospace}
+  .codewin pre{margin:0;padding:22px 20px;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.82rem;line-height:1.95;color:#c3cedb;overflow-x:auto}
+  .codewin .k{color:var(--teal)}.codewin .s{color:#f19ee6}.codewin .f{color:var(--gold)}.codewin .c{color:#566484;font-style:italic}.codewin .n{color:#b9a7ff}
+  .glowpad{position:absolute;width:280px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(31,224,200,.4),transparent 70%);filter:blur(34px);bottom:34px;z-index:-1}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  @media(prefers-reduced-motion:reduce){.codewin{animation:none}}
+  @media(max-width:860px){.hero .kap{grid-template-columns:1fr}.codewrap{min-height:auto;order:-1;margin-bottom:8px}}
 
-  /* SECTION */
-  section{padding:64px 0}
-  .bas{font-size:1.9rem;font-weight:800;margin-bottom:8px}
-  .bas-alt{color:var(--dim);margin-bottom:34px}
+  /* SECTIONS */
+  section{position:relative;padding:92px 0}
+  .shead{margin-bottom:46px;max-width:640px}
+  .shead h2{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:700;margin:12px 0 10px}
+  .shead p{color:var(--soft);font-size:1.05rem}
 
-  /* PROJE */
-  .izgara{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
-  .proje{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;transition:.2s;position:relative;overflow:hidden}
-  .proje:hover{transform:translateY(-4px);border-color:rgba(255,138,43,.5);box-shadow:0 18px 44px rgba(0,0,0,.4)}
-  .proje .pbas{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-  .proje .ikon{width:44px;height:44px;border-radius:11px;display:grid;place-items:center;font-size:1.4rem;background:rgba(255,138,43,.12);border:1px solid rgba(255,138,43,.3)}
-  .proje h3{font-size:1.18rem;font-weight:700}
-  .proje p{color:var(--soft);font-size:.95rem}
-  .pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
-  .pill{font-size:.76rem;color:#bcd;background:rgba(255,255,255,.05);border:1px solid var(--line);padding:4px 10px;border-radius:7px;font-weight:500}
-  .plink{display:inline-flex;align-items:center;gap:6px;margin-top:16px;color:var(--acc);font-weight:600;font-size:.9rem}
-  .plink:hover{gap:10px}
+  /* cards */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+  .card{position:relative;background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:20px;padding:30px;overflow:hidden;transition:.22s}
+  .card::before{content:"";position:absolute;inset:0;border-radius:20px;padding:1px;background:linear-gradient(130deg,rgba(31,224,200,.5),transparent 40%,transparent 60%,rgba(124,92,255,.4));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:.22s}
+  .card:hover{transform:translateY(-6px);border-color:transparent;box-shadow:0 26px 60px rgba(0,0,0,.5)}
+  .card:hover::before{opacity:1}
+  .cico{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px;background:rgba(31,224,200,.1);border:1px solid rgba(31,224,200,.25);color:var(--teal)}
+  .card.v .cico{background:rgba(124,92,255,.12);border-color:rgba(124,92,255,.3);color:#b9a7ff}
+  .card.m .cico{background:rgba(226,75,209,.12);border-color:rgba(226,75,209,.3);color:#f19ee6}
+  .card .cico svg{width:26px;height:26px}
+  .card h3{font-size:1.24rem;font-weight:700;margin-bottom:9px}
+  .card p{color:var(--soft);font-size:.96rem}
+  .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .pill{font-size:.76rem;color:#c7d3dd;background:rgba(255,255,255,.04);border:1px solid var(--line);padding:5px 11px;border-radius:8px;font-weight:500}
+  .fiyat{color:var(--teal);font-weight:700;margin-top:16px;font-family:"Space Grotesk"}
+  .plink{display:inline-flex;align-items:center;gap:7px;margin-top:16px;color:var(--teal);font-weight:600;font-size:.92rem;transition:.15s}
+  .plink:hover{gap:11px;color:#fff}
+  .plink svg{width:16px;height:16px}
 
-  /* HIZMET */
-  .hiz{background:linear-gradient(180deg,var(--bg2),var(--bg))}
-  .hcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column}
-  .hcard .ikon{font-size:1.8rem;margin-bottom:12px}
-  .hcard h3{font-size:1.15rem;font-weight:700;margin-bottom:6px}
-  .hcard p{color:var(--soft);font-size:.94rem;flex:1}
-  .hcard .fiyat{color:var(--acc2);font-weight:700;margin-top:14px;font-size:.95rem}
-
-  /* SKILLS */
+  /* skills */
   .sk{display:flex;flex-wrap:wrap;gap:10px}
-  .sk span{background:var(--card);border:1px solid var(--line);padding:10px 16px;border-radius:10px;font-weight:600;font-size:.92rem;color:#d6deeb}
-  .sk span b{color:var(--acc)}
+  .sk span{background:var(--panel);border:1px solid var(--line);padding:11px 17px;border-radius:11px;font-weight:600;font-size:.92rem;color:#d3dde6;transition:.15s}
+  .sk span:hover{border-color:var(--teal);color:#fff;box-shadow:0 0 20px rgba(31,224,200,.15)}
+  .sk span b{color:var(--teal)}
 
-  /* CONTACT */
-  .ilet{background:linear-gradient(180deg,var(--bg),var(--bg2))}
-  .ikart{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:44px 32px;text-align:center}
-  .ikart h2{font-size:1.9rem;font-weight:800;margin-bottom:10px}
-  .ikart p{color:var(--soft);max-width:520px;margin:0 auto 26px}
+  /* contact */
+  .cta{position:relative;background:linear-gradient(130deg,rgba(31,224,200,.1),rgba(124,92,255,.1));border:1px solid var(--line2);border-radius:26px;padding:60px 36px;text-align:center;overflow:hidden}
+  .cta::before{content:"";position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(31,224,200,.4),transparent 70%);top:-120px;left:50%;transform:translateX(-50%);filter:blur(40px)}
+  .cta>*{position:relative}
+  .cta h2{font-size:clamp(1.9rem,4vw,2.6rem);font-weight:700;margin-bottom:12px}
+  .cta p{color:var(--soft);max-width:520px;margin:0 auto 30px;font-size:1.05rem}
   .baglar{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
-  .bag{display:inline-flex;align-items:center;gap:9px;padding:12px 20px;border-radius:12px;border:1px solid var(--line);background:var(--bg2);font-weight:600;font-size:.95rem;transition:.16s}
-  .bag:hover{border-color:var(--acc);transform:translateY(-2px)}
-  .eposta{color:var(--dim);margin-top:22px;font-size:.9rem}
+  .bag{display:inline-flex;align-items:center;gap:9px;padding:12px 20px;border-radius:12px;border:1px solid var(--line2);background:rgba(255,255,255,.03);font-weight:600;font-size:.94rem;transition:.16s}
+  .bag:hover{border-color:var(--teal);transform:translateY(-2px);background:rgba(31,224,200,.06)}
+  .bag svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .eposta{color:var(--dim);margin-top:24px;font-size:.92rem;font-family:"Space Grotesk"}
 
-  footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:var(--dim);font-size:.85rem}
-  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s}
+  footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:var(--dim);font-size:.86rem}
+  footer .logo{justify-content:center;margin-bottom:8px;font-size:1rem;color:var(--soft)}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
   .reveal.go{opacity:1;transform:none}
   @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 
+<div class="field" aria-hidden="true">
+  <div class="streak"></div>
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+</div>
+
+<div class="wrap">
 <nav>
   <div class="kap">
-    <div class="logo">Cher<b>mantia</b></div>
+    <a href="#" class="logo"><span class="mark"></span> chermantia</a>
     <div class="nav-links">
       <a class="nav-link" href="#projeler">Projeler</a>
       <a class="nav-link" href="#hizmetler">Hizmetler</a>
       <a class="nav-link" href="#yetenekler">Yetenekler</a>
-      <a class="nav-link" href="#iletisim">İletişim</a>
+      <a class="nav-cta" href="#iletisim">İletişim</a>
     </div>
   </div>
 </nav>
 
 <header class="hero">
   <div class="kap">
-    <span class="et"><span class="dot"></span> Freelance / uzaktan projelere açık</span>
-    <h1 class="ad">Cher<span class="grad">mantia</span></h1>
-    <div class="rol">Bağımsız Yazılım Stüdyosu · <b>Full-Stack Web &amp; Otomasyon</b></div>
-    <p class="ozet">Chermantia; 5+ yıl deneyimle fikirden canlı ürüne kadar web uygulamaları, gerçek zamanlı çok oyunculu sistemler ve tarayıcı tabanlı araçlar geliştiren bağımsız bir yazılım stüdyosudur. Veritabanından arayüze, uçtan uca.</p>
-    <div class="btns">
-      <a class="btn ana" href="#projeler">🚀 Projelerime Bak</a>
-      <a class="btn hyl" href="#iletisim">İletişime Geç</a>
+    <div>
+      <span class="chip"><span class="dot"></span> Freelance &amp; uzaktan projelere açık</span>
+      <h1 class="hbas">Fikirden<br><span class="ggrad">canlı ürüne</span></h1>
+      <p class="hsub"><b>Chermantia</b> — full-stack web, gerçek zamanlı sistemler ve otomasyon üzerine bağımsız bir yazılım stüdyosu. Veritabanından arayüze, uçtan uca inşa ederiz.</p>
+      <div class="hbtns">
+        <a class="btn ana" href="#projeler">İşlere Bak
+          <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn hyl" href="#iletisim">İletişime Geç</a>
+      </div>
+      <div class="istat">
+        <div><div class="n ggrad">5+</div><div class="l">yıl deneyim</div></div>
+        <div><div class="n ggrad">Full-Stack</div><div class="l">uçtan uca geliştirme</div></div>
+        <div><div class="n ggrad">Real-time</div><div class="l">WebSocket &amp; çok oyunculu</div></div>
+      </div>
     </div>
-    <div class="istat">
-      <div><div class="n grad">5+</div><div class="l">yıl deneyim</div></div>
-      <div><div class="n grad">Full-Stack</div><div class="l">uçtan uca geliştirme</div></div>
-      <div><div class="n grad">Real-time</div><div class="l">WebSocket & çok oyunculu</div></div>
+    <div class="codewrap">
+      <div class="glowpad"></div>
+      <div class="codewin">
+        <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><em>chermantia ~ sunucu.ts</em></div>
+<pre><span class="c">// gerçek zamanlı · uçtan uca</span>
+<span class="k">const</span> app = <span class="n">Bun</span>.<span class="f">serve</span>({
+  port: <span class="s">3000</span>,
+  websocket: {
+    <span class="f">open</span>(ws) { masa.<span class="f">katil</span>(ws) },
+    <span class="f">message</span>(ws, v) { motor.<span class="f">hamle</span>(v) }
+  },
+  <span class="f">fetch</span>(req) { <span class="k">return</span> <span class="f">api</span>(req) }
+})</pre>
+      </div>
     </div>
   </div>
 </header>
 
 <section id="projeler">
   <div class="kap">
-    <h2 class="bas reveal">Projeler</h2>
-    <p class="bas-alt reveal">Uçtan uca geliştirdiğimiz bazı çalışmalar.</p>
-    <div class="izgara">
-      <div class="proje reveal">
-        <div class="pbas"><div class="ikon">🛡️</div><h3>Payout Review</h3></div>
+    <div class="shead reveal">
+      <span class="eyebrow">Portföy</span>
+      <h2>Uçtan uca geliştirdiğimiz işler</h2>
+      <p>Tasarımdan veritabanına, canlıya alınmış gerçek çalışmalar.</p>
+    </div>
+    <div class="grid">
+      <div class="card reveal">
+        <div class="cico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Payout Review</h3>
         <p>Tarayıcıda çalışan fraud &amp; risk inceleme aracı. CSV yükleyip hesap bazında risk skoru üretir — entegrasyon gerektirmez, veri tarayıcıdan çıkmaz.</p>
         <div class="pills"><span class="pill">JavaScript</span><span class="pill">Fraud/Risk</span><span class="pill">Veri Analizi</span></div>
-        <a class="plink" href="https://arventia-lab.github.io/payout-review/" target="_blank" rel="noopener">Canlı Gör →</a>
+        <a class="plink" href="https://arventia-lab.github.io/payout-review/" target="_blank" rel="noopener">Canlı Gör
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
       </div>
-      <div class="proje reveal">
-        <div class="pbas"><div class="ikon">🀄</div><h3>Çok Oyunculu Okey &amp; Batak</h3></div>
+      <div class="card v reveal">
+        <div class="cico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+        <h3>Çok Oyunculu Okey &amp; Batak</h3>
         <p>WebSocket ile gerçek zamanlı çok oyunculu oyun sunucuları (düz / cezalı / 101 okey, batak). Yapılandırılabilir oyun motorları, bot rakipler, canlı masa.</p>
         <div class="pills"><span class="pill">WebSocket</span><span class="pill">Node.js</span><span class="pill">Real-time</span></div>
       </div>
-      <div class="proje reveal">
-        <div class="pbas"><div class="ikon">🧩</div><h3>Full-Stack Web Uygulamaları</h3></div>
-        <p>Bun + TypeScript ile uçtan uca web uygulamaları: kullanıcı/oturum yönetimi, SQLite veritabanı, REST + WebSocket API ve yönetim paneli. İhtiyaca özel panel ve otomasyon çözümleri.</p>
+      <div class="card m reveal">
+        <div class="cico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5-9 5-9-5 9-5z"/><path d="M3 12l9 5 9-5"/><path d="M3 17l9 5 9-5"/></svg></div>
+        <h3>Full-Stack Web Uygulamaları</h3>
+        <p>Bun + TypeScript ile uçtan uca web uygulamaları: kullanıcı/oturum yönetimi, SQLite veritabanı, REST + WebSocket API ve yönetim paneli. İhtiyaca özel panel ve otomasyon.</p>
         <div class="pills"><span class="pill">Full-Stack</span><span class="pill">SQLite</span><span class="pill">REST + WS</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="hizmetler" class="hiz">
+<section id="hizmetler">
   <div class="kap">
-    <h2 class="bas reveal">Hizmetler</h2>
-    <p class="bas-alt reveal">Bionluk üzerinden sipariş verebilir, doğrudan da yazabilirsin.</p>
-    <div class="izgara">
-      <div class="hcard reveal">
-        <div class="ikon">📊</div>
+    <div class="shead reveal">
+      <span class="eyebrow">Hizmetler</span>
+      <h2>Birlikte çalışalım</h2>
+      <p>Bionluk üzerinden sipariş verebilir ya da doğrudan yazabilirsin.</p>
+    </div>
+    <div class="grid">
+      <div class="card reveal">
+        <div class="cico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></div>
         <h3>Excel &amp; Google Sheets Otomasyonu</h3>
         <p>Tekrarlayan işleri otomatikleştir: formül/makro/script ile otomatik hesaplama, raporlama, veri temizleme ve birleştirme.</p>
         <div class="fiyat">250 TL'den başlayan</div>
-        <a class="plink" href="https://bionluk.com/muhammetgunes2/Excel-ve-Google-Sheets-otomasyonu-yaparim-899218" target="_blank" rel="noopener">Bionluk'ta Gör →</a>
+        <a class="plink" href="https://bionluk.com/muhammetgunes2/Excel-ve-Google-Sheets-otomasyonu-yaparim-899218" target="_blank" rel="noopener">Bionluk'ta Gör
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
       </div>
-      <div class="hcard reveal">
-        <div class="ikon">💻</div>
+      <div class="card v reveal">
+        <div class="cico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8h20M6 6h.01M9 6h.01"/><path d="M8 13l-2 2 2 2M14 13l2 2-2 2"/></svg></div>
         <h3>Web Sitesi &amp; Web Uygulaması</h3>
         <p>İhtiyacına özel kodlanmış, mobil uyumlu ve hızlı web siteleri ile web uygulamaları. Kurumsal site, landing, panel ve daha fazlası.</p>
         <div class="fiyat">750 TL'den başlayan</div>
-        <a class="plink" href="https://bionluk.com/muhammetgunes2/web-siteni-ve-web-uygulamani-kodlarim-899219" target="_blank" rel="noopener">Bionluk'ta Gör →</a>
+        <a class="plink" href="https://bionluk.com/muhammetgunes2/web-siteni-ve-web-uygulamani-kodlarim-899219" target="_blank" rel="noopener">Bionluk'ta Gör
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
       </div>
     </div>
   </div>
@@ -215,8 +287,11 @@
 
 <section id="yetenekler">
   <div class="kap">
-    <h2 class="bas reveal">Yetenekler</h2>
-    <p class="bas-alt reveal">Kullandığım teknolojiler ve uzmanlık alanlarım.</p>
+    <div class="shead reveal">
+      <span class="eyebrow">Yetenekler</span>
+      <h2>Kullandığımız teknolojiler</h2>
+      <p>Uzmanlık alanlarımız ve araç setimiz.</p>
+    </div>
     <div class="sk reveal">
       <span><b>TypeScript</b></span><span><b>JavaScript</b></span><span><b>Node.js</b></span>
       <span><b>Bun</b></span><span><b>WebSocket</b></span><span><b>SQLite</b></span>
@@ -227,16 +302,17 @@
   </div>
 </section>
 
-<section id="iletisim" class="ilet">
+<section id="iletisim">
   <div class="kap">
-    <div class="ikart reveal">
-      <h2>Birlikte bir şey yapalım</h2>
-      <p>Bir projen, fikrin veya ihtiyacın mı var? İşini kısaca anlat, sana en uygun çözümü birlikte planlayalım. Freelance ve uzaktan projelere açığım.</p>
+    <div class="cta reveal">
+      <span class="eyebrow">İletişim</span>
+      <h2>Bir sonraki projeni konuşalım</h2>
+      <p>Bir fikrin, projen veya ihtiyacın mı var? Kısaca anlat; sana en uygun çözümü birlikte planlayalım. Freelance ve uzaktan projelere açığız.</p>
       <div class="baglar">
-        <a class="bag" href="mailto:chermantiastudio@gmail.com">✉️ E-posta</a>
-        <a class="bag" href="https://www.linkedin.com/in/arventia-lab/" target="_blank" rel="noopener">in LinkedIn</a>
-        <a class="bag" href="https://github.com/arventia-lab" target="_blank" rel="noopener">⌁ GitHub</a>
-        <a class="bag" href="https://bionluk.com/muhammetgunes2" target="_blank" rel="noopener">◆ Bionluk</a>
+        <a class="bag" href="mailto:chermantiastudio@gmail.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg> E-posta</a>
+        <a class="bag" href="https://www.linkedin.com/in/arventia-lab/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4"/></svg> LinkedIn</a>
+        <a class="bag" href="https://github.com/arventia-lab" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 00-1.3-3.2 4.2 4.2 0 00-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 00-6.2 0C6.7 2.3 5.6 2.6 5.6 2.6a4.2 4.2 0 00-.1 3.2A4.6 4.6 0 004 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg> GitHub</a>
+        <a class="bag" href="https://bionluk.com/muhammetgunes2" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg> Bionluk</a>
       </div>
       <div class="eposta">chermantiastudio@gmail.com</div>
     </div>
@@ -244,8 +320,10 @@
 </section>
 
 <footer>
+  <div class="logo"><span class="mark"></span> chermantia</div>
   © 2026 Chermantia — Full-Stack Web, Gerçek Zamanlı Sistemler &amp; Otomasyon
 </footer>
+</div>
 
 <script>
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('go');io.unobserve(e.target)}})},{threshold:.12});
