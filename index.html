@@ -168,6 +168,13 @@
   .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
   .reveal.go{opacity:1;transform:none}
   @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+  /* smooth scroll (lenis) + staggered reveal */
+  html.lenis,html.lenis body{height:auto}
+  .lenis.lenis-smooth{scroll-behavior:auto!important}
+  .lenis.lenis-stopped{overflow:hidden}
+  .grid>.reveal:nth-child(2){transition-delay:.1s}
+  .grid>.reveal:nth-child(3){transition-delay:.2s}
+  .sk span{transition:.18s,border-color .15s}
 </style>
 </head>
 <body>
@@ -325,9 +332,24 @@
 </footer>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 <script>
+  // scroll-trigger reveals
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('go');io.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  // buttery smooth scroll + light parallax (motion-safe)
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(!reduce && window.Lenis){
+    var lenis=new Lenis({duration:1.15,smoothWheel:true,wheelMultiplier:1,touchMultiplier:1.5});
+    function raf(t){lenis.raf(t);requestAnimationFrame(raf)}
+    requestAnimationFrame(raf);
+    var field=document.querySelector('.field'), cw=document.querySelector('.codewrap');
+    lenis.on('scroll',function(){
+      var y=lenis.scroll||window.scrollY||0;
+      if(field)field.style.transform='translateY('+(y*0.07).toFixed(1)+'px)';
+      if(cw)cw.style.transform='translateY('+Math.max(-70,-y*0.05).toFixed(1)+'px)';
+    });
+  }
 </script>
 </body>
 </html>
