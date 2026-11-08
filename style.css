@@ -378,4 +378,10 @@ html.lenis,html.lenis body{height:auto}
 .pfeat-body h3{font-size:1.5rem;margin:11px 0 10px}
 .pfeat-body p{color:var(--soft);margin-bottom:16px}
 .grid.two{grid-template-columns:1fr 1fr;gap:22px}
-@media(max-width:820px){.pfeat{grid-template-columns:1fr;gap:18px;padding:16px}.pfeat-body h3{font-size:1.32rem}.grid.two{grid-template-columns:1fr}}
+.pfeat+.pfeat{margin-top:0}
+.pfeat.alt{grid-template-columns:.88fr 1.12fr}
+.pfeat.alt .pfeat-body{order:1}
+.pfeat.alt .pshot{order:2}
+.pfeat.solo{grid-template-columns:1fr}
+.pshot-static{cursor:default}
+@media(max-width:820px){.pfeat,.pfeat.alt,.pfeat.solo{grid-template-columns:1fr;gap:18px;padding:16px}.pfeat.alt .pshot,.pfeat.alt .pfeat-body{order:0}.pfeat-body h3{font-size:1.32rem}.grid.two{grid-template-columns:1fr}}
