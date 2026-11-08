@@ -331,7 +331,21 @@ var T={
 "form.err":{tr:"Lütfen ad, geçerli e-posta ve mesaj gir.",en:"Please enter a name, valid email and message.",de:"Bitte Name, gültige E-Mail und Nachricht eingeben."},
 "form.btn":{tr:"Gönder",en:"Send",de:"Senden"},
 "bag.email":{tr:"E-posta",en:"Email",de:"E-Mail"},
-"footer.copy":{tr:"© 2026 Chermantia — Full-Stack Web, Gerçek Zamanlı Sistemler &amp; Otomasyon",en:"© 2026 Chermantia — Full-Stack Web, Real-Time Systems &amp; Automation",de:"© 2026 Chermantia — Full-Stack-Web, Echtzeitsysteme &amp; Automatisierung"}
+"footer.copy":{tr:"© 2026 Chermantia — Full-Stack Web, Gerçek Zamanlı Sistemler &amp; Otomasyon",en:"© 2026 Chermantia — Full-Stack Web, Real-Time Systems &amp; Automation",de:"© 2026 Chermantia — Full-Stack-Web, Echtzeitsysteme &amp; Automatisierung"},
+"cmd.ph":{tr:"Sayfa ara ya da komut çalıştır…",en:"Search pages or run a command…",de:"Seiten suchen oder Befehl ausführen…"},
+"cmd.empty":{tr:"Sonuç bulunamadı",en:"No results",de:"Keine Ergebnisse"},
+"cmd.trig":{tr:"Ara",en:"Search",de:"Suchen"},
+"cmd.copy":{tr:"E-postayı kopyala",en:"Copy email",de:"E-Mail kopieren"},
+"cmd.copied":{tr:"E-posta kopyalandı",en:"Email copied",de:"E-Mail kopiert"},
+"cmd.sendmail":{tr:"E-posta gönder",en:"Send email",de:"E-Mail senden"},
+"cmd.github":{tr:"GitHub",en:"GitHub",de:"GitHub"},
+"cmd.cat.pages":{tr:"Sayfalar",en:"Pages",de:"Seiten"},
+"cmd.cat.sections":{tr:"Bölümler",en:"Sections",de:"Bereiche"},
+"cmd.cat.actions":{tr:"Hızlı işlemler",en:"Quick actions",de:"Schnellaktionen"},
+"cmd.cat.lang":{tr:"Dil",en:"Language",de:"Sprache"},
+"cmd.lang.tr":{tr:"Türkçe",en:"Türkçe",de:"Türkçe"},
+"cmd.lang.en":{tr:"English",en:"English",de:"English"},
+"cmd.lang.de":{tr:"Deutsch",en:"Deutsch",de:"Deutsch"}
 };
 function apply(l){
   document.querySelectorAll('[data-i18n]').forEach(function(el){
@@ -351,5 +365,142 @@ document.querySelectorAll('.langsw button').forEach(function(b){
   b.addEventListener('click',function(){ apply(b.getAttribute('data-lang')); });
 });
 apply(saved);
+
+/* ---------- komut paleti (⌘K / Ctrl+K) ---------- */
+(function(){
+  var EMAIL='chermantiastudio@gmail.com';
+  var isMac=/mac|iphone|ipad|ipod/i.test((navigator.platform||'')+' '+(navigator.userAgent||''));
+  function clang(){ var l=document.documentElement.lang; return /^(en|de)$/.test(l)?l:'tr'; }
+  function tr(k){ return (T[k]&&T[k][clang()])||k; }
+  function norm(s){ return String(s).replace(/İ/g,'i').replace(/I/g,'i').replace(/ı/g,'i').replace(/Ş/g,'s').replace(/ş/g,'s').replace(/Ğ/g,'g').replace(/ğ/g,'g').replace(/Ü/g,'u').replace(/ü/g,'u').replace(/Ö/g,'o').replace(/ö/g,'o').replace(/Ç/g,'c').replace(/ç/g,'c').toLowerCase(); }
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+
+  var G={
+    home:'<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/>',
+    grid:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',
+    steps:'<path d="M5 20V10M12 20V4M19 20v-8"/>',
+    gear:'<circle cx="12" cy="12" r="3.3"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/>',
+    share:'<circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="M8.1 10.9l7.8-3.7M8.1 13.1l7.8 3.7"/>',
+    shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>',
+    user:'<circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/>',
+    help:'<circle cx="12" cy="12" r="9"/><path d="M9.3 9.2a2.8 2.8 0 015.4 1c0 1.9-2.7 2-2.7 3.8"/><circle cx="12" cy="17" r=".7" fill="currentColor" stroke="none"/>',
+    calc:'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h2M8 15h2M12 15h2"/>',
+    gh:'<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 00-1.3-3.2 4.2 4.2 0 00-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 00-6.2 0C6.7 2.3 5.6 2.6 5.6 2.6a4.2 4.2 0 00-.1 3.2A4.6 4.6 0 004 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/>',
+    mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
+    tag:'<path d="M20 12l-8 8-9-9V3h8z"/><circle cx="7.5" cy="7.5" r="1.2" fill="currentColor" stroke="none"/>',
+    copy:'<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 012-2h8"/>',
+    send:'<path d="M22 3L11 14M22 3l-7 18-4-7-7-4z"/>',
+    globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/>'
+  };
+  var ITEMS=[
+    {c:'cmd.cat.pages',k:'nav.anasayfa',kw:'ana sayfa home start startseite',h:'index.html',g:'home'},
+    {c:'cmd.cat.pages',k:'nav.projeler',kw:'projeler projects projekte portfoy portfolio work isler vaka',h:'projeler.html',g:'grid'},
+    {c:'cmd.cat.pages',k:'nav.surec',kw:'surec process prozess adim steps nasil calisma',h:'surec.html',g:'steps'},
+    {c:'cmd.cat.pages',k:'nav.hizmetler',kw:'hizmetler services leistungen fiyat price teknoloji',h:'hizmetler.html',g:'gear'},
+    {c:'cmd.cat.sections',k:'arch.eyebrow',kw:'mimari architecture architektur websocket nasil calisir',h:'index.html#mimari',g:'share'},
+    {c:'cmd.cat.sections',k:'promise.eyebrow',kw:'calisma sozumuz promise versprechen garanti neden why warum',h:'index.html#soz',g:'shield'},
+    {c:'cmd.cat.sections',k:'nav.hakkimizda',kw:'hakkimizda about uber uns kim muhammet gunes',h:'index.html#hakkimizda',g:'user'},
+    {c:'cmd.cat.sections',k:'nav.sss',kw:'sss faq soru sorular questions fragen',h:'surec.html#sss',g:'help'},
+    {c:'cmd.cat.sections',k:'est.eyebrow',kw:'proje hesaplayici estimator rechner tahmin fiyat sure',h:'hizmetler.html#hesaplayici',g:'calc'},
+    {c:'cmd.cat.sections',k:'cmd.github',kw:'github acik kaynak open source repo kod',h:'projeler.html#github',g:'gh'},
+    {c:'cmd.cat.actions',k:'nav.iletisim',kw:'iletisim contact kontakt yaz mesaj form',h:'index.html#iletisim',g:'mail'},
+    {c:'cmd.cat.actions',k:'link.quote',kw:'teklif al quote angebot fiyat offer',h:'index.html#iletisim',g:'tag'},
+    {c:'cmd.cat.actions',k:'cmd.copy',kw:'e-posta email mail kopyala copy kopieren adres',a:'copy',g:'copy'},
+    {c:'cmd.cat.actions',k:'cmd.sendmail',kw:'e-posta gonder send mail mailto yaz',h:'mailto:'+EMAIL,g:'send'},
+    {c:'cmd.cat.lang',k:'cmd.lang.tr',kw:'turkce turkish turkisch dil language sprache tr',a:'lang',arg:'tr',g:'globe'},
+    {c:'cmd.cat.lang',k:'cmd.lang.en',kw:'english ingilizce englisch dil language sprache en',a:'lang',arg:'en',g:'globe'},
+    {c:'cmd.cat.lang',k:'cmd.lang.de',kw:'deutsch german almanca dil language sprache de',a:'lang',arg:'de',g:'globe'}
+  ];
+  var SRCH='<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>';
+
+  var ov=document.createElement('div');
+  ov.className='cmdk-ov'; ov.setAttribute('role','dialog'); ov.setAttribute('aria-modal','true'); ov.setAttribute('aria-label','Chermantia');
+  ov.innerHTML='<div class="cmdk-modal"><div class="cmdk-head">'+SRCH+'<input class="cmdk-input" type="text" autocomplete="off" autocorrect="off" spellcheck="false"><span class="cmdk-esc">ESC</span></div><div class="cmdk-list" role="listbox"></div></div>';
+  document.body.appendChild(ov);
+  var modal=ov.querySelector('.cmdk-modal'), input=ov.querySelector('.cmdk-input'), list=ov.querySelector('.cmdk-list');
+  var toast=document.createElement('div'); toast.className='cmdk-toast'; toast.setAttribute('role','status'); document.body.appendChild(toast);
+
+  var nl=document.querySelector('.nav-links'), trig=null;
+  if(nl){
+    trig=document.createElement('button'); trig.type='button'; trig.className='cmdk-trig';
+    trig.innerHTML=SRCH+'<span class="tl"></span><span class="kbd"></span>';
+    var ls=nl.querySelector('.langsw'); if(ls) nl.insertBefore(trig,ls); else nl.appendChild(trig);
+    trig.addEventListener('click',open);
+  }
+  var fab=document.createElement('button'); fab.type='button'; fab.className='cmdk-fab'; fab.setAttribute('aria-label','Ara'); fab.innerHTML=SRCH;
+  document.body.appendChild(fab); fab.addEventListener('click',open);
+
+  var open_=false, vis=[], sel=0, toastT=null;
+
+  function relabel(){
+    input.placeholder=tr('cmd.ph');
+    if(trig){ var t=trig.querySelector('.tl'); if(t)t.textContent=tr('cmd.trig'); var kb=trig.querySelector('.kbd'); if(kb)kb.textContent=(isMac?'⌘K':'Ctrl K'); }
+  }
+  function render(){
+    var q=norm(input.value.trim()), html='', curCat=null; vis=[];
+    ITEMS.forEach(function(it){
+      var label=tr(it.k);
+      if(q){ if(norm(label+' '+it.kw).indexOf(q)<0) return; }
+      if(it.c!==curCat){ curCat=it.c; html+='<div class="cmdk-cat">'+esc(tr(it.c))+'</div>'; }
+      var idx=vis.length; vis.push(it);
+      html+='<div class="cmdk-item" data-i="'+idx+'" role="option"><span class="ci"><svg viewBox="0 0 24 24">'+G[it.g]+'</svg></span><span class="cl"><b></b></span><span class="ck">↵</span></div>';
+    });
+    list.innerHTML = vis.length ? html : '<div class="cmdk-empty">'+esc(tr('cmd.empty'))+'</div>';
+    list.querySelectorAll('.cmdk-item').forEach(function(n){ n.querySelector('b').textContent=tr(vis[+n.getAttribute('data-i')].k); });
+    sel=0; paint();
+  }
+  function paint(){
+    var ns=list.querySelectorAll('.cmdk-item');
+    ns.forEach(function(n,i){ n.classList.toggle('sel',i===sel); n.setAttribute('aria-selected',i===sel?'true':'false'); });
+    var a=ns[sel]; if(a&&a.scrollIntoView) a.scrollIntoView({block:'nearest'});
+  }
+  function open(){ if(open_)return; open_=true; ov.classList.add('on'); if(nl)nl.classList.remove('open'); input.value=''; render(); setTimeout(function(){ try{input.focus();}catch(e){} },30); }
+  function close(){ if(!open_)return; open_=false; ov.classList.remove('on'); }
+  function toggle(){ open_?close():open(); }
+
+  ov.addEventListener('click',function(e){ if(e.target===ov) close(); });
+  input.addEventListener('input',render);
+  list.addEventListener('click',function(e){ var it=e.target.closest('.cmdk-item'); if(it){ sel=+it.getAttribute('data-i'); run(); } });
+  list.addEventListener('mousemove',function(e){ var it=e.target.closest('.cmdk-item'); if(it){ var i=+it.getAttribute('data-i'); if(i!==sel){ sel=i; paint(); } } });
+
+  function run(){
+    var it=vis[sel]; if(!it)return;
+    if(it.a==='lang'){ apply(it.arg); return; }
+    if(it.a==='copy'){ copyMail(); return; }
+    close(); go(it.h);
+  }
+  function go(href){
+    var hi=href.indexOf('#');
+    if(hi>-1 && href.slice(0,4)!=='mail'){
+      var path=href.slice(0,hi), id=href.slice(hi+1);
+      var here=location.pathname.split('/').pop()||'index.html';
+      var same=(!path)||path===here||(path==='index.html'&&(here===''||here==='index.html'));
+      if(same){ var el=document.getElementById(id); if(el){ el.scrollIntoView({behavior:'smooth',block:'start'}); try{history.replaceState(null,'','#'+id);}catch(e){} return; } }
+    }
+    window.location.href=href;
+  }
+  function showToast(msg){ toast.textContent=msg; toast.classList.add('on'); clearTimeout(toastT); toastT=setTimeout(function(){ toast.classList.remove('on'); },1800); }
+  function copyMail(){
+    var done=function(){ showToast(tr('cmd.copied')); };
+    var fb=function(){ try{ var t=document.createElement('textarea'); t.value=EMAIL; t.style.position='fixed'; t.style.opacity='0'; document.body.appendChild(t); t.focus(); t.select(); document.execCommand('copy'); document.body.removeChild(t); done(); }catch(e){ showToast(EMAIL); } };
+    try{ if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(EMAIL).then(done,fb); return; } }catch(e){}
+    fb();
+  }
+
+  document.addEventListener('keydown',function(e){
+    if((e.key==='k'||e.key==='K')&&(e.metaKey||e.ctrlKey)){ e.preventDefault(); toggle(); return; }
+    if(!open_){
+      if(e.key==='/'){ var t=e.target, tn=((t&&t.tagName)||'').toLowerCase(); if(tn==='input'||tn==='textarea'||tn==='select'||(t&&t.isContentEditable))return; e.preventDefault(); open(); }
+      return;
+    }
+    if(e.key==='Escape'){ e.preventDefault(); close(); }
+    else if(e.key==='ArrowDown'){ e.preventDefault(); if(vis.length){ sel=(sel+1)%vis.length; paint(); } }
+    else if(e.key==='ArrowUp'){ e.preventDefault(); if(vis.length){ sel=(sel-1+vis.length)%vis.length; paint(); } }
+    else if(e.key==='Enter'){ e.preventDefault(); run(); }
+  });
+
+  document.addEventListener('chlang',function(){ relabel(); if(open_)render(); });
+  relabel();
+})();
 
 })();

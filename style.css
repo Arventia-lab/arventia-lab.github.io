@@ -310,3 +310,42 @@ html.lenis,html.lenis body{height:auto}
 .trustgrid>.reveal:nth-child(3){transition-delay:.12s}
 .trustgrid>.reveal:nth-child(5){transition-delay:.06s}
 .trustgrid>.reveal:nth-child(6){transition-delay:.12s}
+
+/* ===== komut paleti (⌘K) ===== */
+.cmdk-trig{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.04);border:1px solid var(--line2);border-radius:999px;padding:6px 9px 6px 12px;cursor:pointer;color:var(--soft);font:500 .84rem "DM Sans",sans-serif;transition:.15s;margin-left:2px}
+.cmdk-trig:hover{color:var(--txt);border-color:rgba(31,224,200,.5);background:rgba(31,224,200,.07)}
+.cmdk-trig svg{width:15px;height:15px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.cmdk-trig .kbd{font:600 .68rem "Space Grotesk",sans-serif;letter-spacing:.03em;color:var(--dim);border:1px solid var(--line2);border-radius:6px;padding:1px 6px}
+.cmdk-fab{position:fixed;right:16px;bottom:16px;z-index:70;width:52px;height:52px;border-radius:16px;border:1px solid var(--line2);background:linear-gradient(135deg,rgba(31,224,200,.2),rgba(124,92,255,.2));backdrop-filter:blur(10px);color:var(--txt);display:none;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.cmdk-fab svg{width:23px;height:23px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.cmdk-fab:active{transform:scale(.94)}
+.cmdk-ov{position:fixed;inset:0;z-index:200;display:none;align-items:flex-start;justify-content:center;padding:13vh 16px 20px;background:rgba(3,5,12,.62);backdrop-filter:blur(6px)}
+.cmdk-ov.on{display:flex}
+.cmdk-modal{width:100%;max-width:560px;background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line2);border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.6);overflow:hidden;animation:cmdkin .18s ease}
+@keyframes cmdkin{from{opacity:0;transform:translateY(-8px) scale(.985)}to{opacity:1;transform:none}}
+.cmdk-head{display:flex;align-items:center;gap:11px;padding:15px 16px;border-bottom:1px solid var(--line)}
+.cmdk-head svg{width:19px;height:19px;stroke:var(--teal);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.cmdk-input{flex:1;min-width:0;background:none;border:0;outline:none;color:var(--txt);font:500 1.05rem "DM Sans",sans-serif}
+.cmdk-input::placeholder{color:var(--dim)}
+.cmdk-esc{font:600 .64rem "Space Grotesk",sans-serif;color:var(--dim);border:1px solid var(--line2);border-radius:6px;padding:2px 7px;flex:0 0 auto}
+.cmdk-list{max-height:52vh;overflow-y:auto;padding:8px}
+.cmdk-cat{font:600 .64rem "Space Grotesk",sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);padding:11px 12px 5px}
+.cmdk-item{display:flex;align-items:center;gap:12px;padding:9px 12px;border-radius:11px;cursor:pointer;color:var(--soft)}
+.cmdk-item .ci{width:34px;height:34px;flex:0 0 auto;border-radius:9px;background:rgba(255,255,255,.04);border:1px solid var(--line);display:grid;place-items:center;transition:.14s}
+.cmdk-item .ci svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.cmdk-item .cl{flex:1;min-width:0}
+.cmdk-item .cl b{display:block;font:600 .95rem "DM Sans",sans-serif;color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cmdk-item .ck{font:600 .72rem "Space Grotesk",sans-serif;color:var(--dim);border:1px solid var(--line2);border-radius:6px;padding:1px 7px;opacity:0;flex:0 0 auto}
+.cmdk-item.sel{background:rgba(31,224,200,.1);color:var(--txt)}
+.cmdk-item.sel .ci{border-color:rgba(31,224,200,.6);color:var(--teal);background:rgba(31,224,200,.08)}
+.cmdk-item.sel .ck{opacity:1}
+.cmdk-empty{padding:30px 14px;text-align:center;color:var(--dim);font-size:.92rem}
+.cmdk-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(12px);z-index:210;background:var(--panel2);border:1px solid rgba(31,224,200,.6);color:var(--txt);padding:11px 18px;border-radius:12px;font:600 .9rem "DM Sans",sans-serif;box-shadow:0 14px 34px rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:.22s}
+.cmdk-toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:760px){
+  .cmdk-fab{display:flex}
+  .cmdk-trig{align-self:flex-start;margin:12px 0 2px;font-size:.95rem}
+  .cmdk-trig .kbd{display:none}
+  .cmdk-ov{padding:9vh 12px 16px}
+}
+@media(prefers-reduced-motion:reduce){ .cmdk-modal{animation:none} .cmdk-toast{transition:none} }
