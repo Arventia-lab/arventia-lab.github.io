@@ -180,6 +180,13 @@
   .grid>.reveal:nth-child(2){transition-delay:.1s}
   .grid>.reveal:nth-child(3){transition-delay:.2s}
   .sk span{transition:.18s,border-color .15s}
+  /* süreç */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(198px,1fr));gap:18px}
+  .step{position:relative;background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:18px;padding:26px 24px;transition:.2s}
+  .step:hover{transform:translateY(-5px);border-color:rgba(31,224,200,.4)}
+  .snum{font-family:"Space Grotesk";font-weight:700;font-size:1.5rem;background:linear-gradient(100deg,var(--teal),var(--vio));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:12px}
+  .step h3{font-size:1.1rem;font-weight:700;margin-bottom:7px}
+  .step p{color:var(--soft);font-size:.93rem}
   /* PINNED hero (sabit + scroll animasyonu) */
   .pin{position:relative;height:210vh}
   .pinner{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden}
@@ -212,6 +219,7 @@
     </a>
     <div class="nav-links">
       <a class="nav-link" href="#projeler">Projeler</a>
+      <a class="nav-link" href="#surec">Süreç</a>
       <a class="nav-link" href="#hizmetler">Hizmetler</a>
       <a class="nav-link" href="#yetenekler">Yetenekler</a>
       <a class="nav-cta" href="#iletisim">İletişim</a>
@@ -285,6 +293,23 @@
         <p>Bun + TypeScript ile uçtan uca web uygulamaları: kullanıcı/oturum yönetimi, SQLite veritabanı, REST + WebSocket API ve yönetim paneli. İhtiyaca özel panel ve otomasyon.</p>
         <div class="pills"><span class="pill">Full-Stack</span><span class="pill">SQLite</span><span class="pill">REST + WS</span></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="surec">
+  <div class="kap">
+    <div class="shead reveal">
+      <span class="eyebrow">Süreç</span>
+      <h2>Fikirden teslime, net bir süreç</h2>
+      <p>Her projede şeffaf, adım adım ilerleriz — sürpriz yok.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="snum">01</div><h3>Keşif</h3><p>İhtiyacını dinler, hedefi ve kapsamı birlikte netleştiririz.</p></div>
+      <div class="step reveal"><div class="snum">02</div><h3>Teklif &amp; Plan</h3><p>Şeffaf fiyat ve net bir zaman çizelgesi çıkarırız.</p></div>
+      <div class="step reveal"><div class="snum">03</div><h3>Geliştirme</h3><p>Uçtan uca kodlar, düzenli güncellemeyle ilerlemeyi gösteririz.</p></div>
+      <div class="step reveal"><div class="snum">04</div><h3>Test &amp; Teslim</h3><p>Test eder, canlıya alır, kısa bir kullanım anlatımı veririz.</p></div>
+      <div class="step reveal"><div class="snum">05</div><h3>Destek</h3><p>Teslimden sonra da yanındayız; takıldığın yerde buradayız.</p></div>
     </div>
   </div>
 </section>
