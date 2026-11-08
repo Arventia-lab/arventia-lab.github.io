@@ -503,4 +503,32 @@ apply(saved);
   relabel();
 })();
 
+/* ---------- premium kart etkileşimi: imleç ışığı + 3D tilt ---------- */
+(function(){
+  try{
+    if(!matchMedia('(pointer:fine)').matches) return;
+    if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  }catch(e){ return; }
+  var MAX=5;
+  function bind(nodes){
+    nodes.forEach(function(el){
+      if(el.__fx) return; el.__fx=true; el.classList.add('fx');
+      var raf=0, mx=50, my=50, rx=0, ry=0;
+      function paint(){ raf=0; el.style.setProperty('--mx',mx+'%'); el.style.setProperty('--my',my+'%'); el.style.transform='perspective(820px) rotateX('+ry.toFixed(2)+'deg) rotateY('+rx.toFixed(2)+'deg) translateY(-3px)'; }
+      el.addEventListener('pointermove',function(e){
+        var r=el.getBoundingClientRect(); if(!r.width||!r.height) return;
+        var px=(e.clientX-r.left)/r.width, py=(e.clientY-r.top)/r.height;
+        px=px<0?0:px>1?1:px; py=py<0?0:py>1?1:py;
+        mx=px*100; my=py*100; rx=(px-0.5)*2*MAX; ry=-(py-0.5)*2*MAX;
+        if(!raf) raf=requestAnimationFrame(paint);
+      });
+      el.addEventListener('pointerenter',function(){ el.classList.add('lit'); el.style.transition='transform .12s ease'; });
+      el.addEventListener('pointerleave',function(){ el.classList.remove('lit'); el.style.transition='transform .34s ease'; el.style.transform=''; mx=my=50; rx=ry=0; setTimeout(function(){ el.style.transition=''; },360); });
+    });
+  }
+  bind(document.querySelectorAll('.card, .titem, .step, .case'));
+  var gh=document.getElementById('ghrepos');
+  if(gh){ try{ new MutationObserver(function(){ bind(gh.querySelectorAll('.ghcard')); }).observe(gh,{childList:true}); }catch(e){} }
+})();
+
 })();

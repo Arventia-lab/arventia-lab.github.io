@@ -349,3 +349,8 @@ html.lenis,html.lenis body{height:auto}
   .cmdk-ov{padding:9vh 12px 16px}
 }
 @media(prefers-reduced-motion:reduce){ .cmdk-modal{animation:none} .cmdk-toast{transition:none} }
+
+/* ===== premium kart etkileşimi (imleç ışığı + 3D tilt) ===== */
+.fx{transform-style:preserve-3d}
+.fx::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),rgba(31,224,200,.2),rgba(124,92,255,.08) 42%,transparent 66%);mix-blend-mode:screen;opacity:0;transition:opacity .25s ease;pointer-events:none;z-index:2}
+.fx.lit::after{opacity:1}
