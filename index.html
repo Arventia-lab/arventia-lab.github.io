@@ -245,6 +245,39 @@
   .cform textarea{min-height:120px;resize:vertical}
   .ferr{color:#ff8a7e;font-size:.82rem;display:none}
   @media(max-width:520px){.cform .row2{grid-template-columns:1fr}}
+  /* hesaplayıcı */
+  .est{display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:start}
+  .estform{display:flex;flex-direction:column;gap:22px}
+  .estlabel{font-family:"Space Grotesk";font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:10px}
+  .estopts{display:flex;flex-wrap:wrap;gap:9px}
+  .estopts button{background:var(--panel);border:1px solid var(--line);color:#d3dde6;padding:10px 15px;border-radius:11px;font:600 .9rem "DM Sans",sans-serif;cursor:pointer;transition:.15s}
+  .estopts button:hover{border-color:var(--line2)}
+  .estopts button.on{background:linear-gradient(100deg,rgba(31,224,200,.16),rgba(124,92,255,.16));border-color:var(--teal);color:#fff;box-shadow:0 0 18px rgba(31,224,200,.12)}
+  .estout{background:linear-gradient(160deg,rgba(31,224,200,.08),rgba(124,92,255,.08));border:1px solid var(--line2);border-radius:20px;padding:28px;position:sticky;top:90px}
+  .esttier{font-family:"Space Grotesk";font-weight:700;font-size:1.45rem;background:linear-gradient(100deg,var(--teal),var(--vio));-webkit-background-clip:text;background-clip:text;color:transparent;margin:6px 0 6px;min-height:1.4em}
+  .estmeta{color:var(--soft);font-size:.95rem;margin-bottom:14px}
+  .estnote{color:var(--dim);font-size:.82rem;margin-bottom:18px}
+  .estout .btn{width:100%}
+  @media(max-width:820px){.est{grid-template-columns:1fr}.estout{position:static}}
+  /* github */
+  .ghgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:16px}
+  .ghcard{display:block;background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:16px;padding:22px;transition:.2s}
+  .ghcard:hover{transform:translateY(-4px);border-color:rgba(31,224,200,.4)}
+  .ghcard h3{font-size:1.04rem;font-weight:700;margin-bottom:7px;display:flex;align-items:center;gap:8px;word-break:break-word}
+  .ghcard h3 svg{width:17px;height:17px;flex:0 0 auto;color:var(--teal)}
+  .ghcard p{color:var(--soft);font-size:.9rem;margin-bottom:14px;min-height:2.4em}
+  .ghmeta{display:flex;align-items:center;flex-wrap:wrap;gap:14px;color:var(--dim);font-size:.82rem}
+  .dotlang{width:10px;height:10px;border-radius:50%;background:var(--teal);display:inline-block;margin-right:5px;vertical-align:middle}
+  .ghempty{color:var(--soft);text-align:center;grid-column:1/-1;padding:20px}
+  /* canlı demo */
+  .demobox{max-width:480px;margin:0 auto;text-align:center;background:linear-gradient(160deg,rgba(31,224,200,.08),rgba(124,92,255,.08));border:1px solid var(--line2);border-radius:24px;padding:46px 32px;position:relative;overflow:hidden}
+  .demopulse{position:absolute;inset:0;background:radial-gradient(circle at 50% 42%,rgba(31,224,200,.4),transparent 60%);opacity:0;pointer-events:none;transition:opacity .09s}
+  .demopulse.on{opacity:1}
+  .demonum{position:relative;font-family:"Space Grotesk";font-weight:700;font-size:3.4rem;line-height:1;background:linear-gradient(100deg,var(--teal),var(--vio));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .demolbl{position:relative;color:var(--dim);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;margin:6px 0 22px}
+  .demobox .btn{position:relative}
+  .demopres{position:relative;margin-top:18px;color:var(--soft);font-size:.86rem;display:flex;align-items:center;justify-content:center;gap:7px}
+  .dotlive{width:8px;height:8px;border-radius:50%;background:#22d3a5;box-shadow:0 0 10px #22d3a5;animation:pulse 2s infinite}
   /* PINNED hero (sabit + scroll animasyonu) */
   .pin{position:relative;height:210vh}
   .pinner{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden}
@@ -361,6 +394,23 @@
   </div>
 </section>
 
+<section id="demo">
+  <div class="kap">
+    <div class="shead reveal">
+      <span class="eyebrow" data-i18n="demo.eyebrow">Canlı Demo</span>
+      <h2 data-i18n="demo.h2">Gerçek zamanlı — kendin dene</h2>
+      <p data-i18n="demo.sub">Bu sayfayı iki sekmede aç, birinde tıkla; diğerinde anında senkron olsun. İşte bizim işimiz.</p>
+    </div>
+    <div class="demobox reveal">
+      <div class="demopulse" id="demo-pulse" aria-hidden="true"></div>
+      <div class="demonum" id="demo-count">0</div>
+      <div class="demolbl" data-i18n="demo.clicks">senkron tıklama</div>
+      <button class="btn ana" id="demo-btn" style="justify-content:center"><span data-i18n="demo.btn">Canlı Gönder</span></button>
+      <div class="demopres"><span class="dotlive"></span><span id="demo-tabs">1</span> <span data-i18n="demo.tabs">bağlı sekme</span></div>
+    </div>
+  </div>
+</section>
+
 <section id="vaka">
   <div class="kap">
     <div class="shead reveal">
@@ -462,6 +512,55 @@
   </div>
 </section>
 
+<section id="hesaplayici">
+  <div class="kap">
+    <div class="shead reveal">
+      <span class="eyebrow" data-i18n="est.eyebrow">Proje Hesaplayıcı</span>
+      <h2 data-i18n="est.h2">Projeni birkaç tıkla planla</h2>
+      <p data-i18n="est.sub">Seç, anında tahmini kapsam ve süreyi gör — net teklifi birlikte netleştiririz.</p>
+    </div>
+    <div class="est reveal">
+      <div class="estform">
+        <div>
+          <div class="estlabel" data-i18n="est.type">Proje türü</div>
+          <div class="estopts" data-single="1">
+            <button type="button" data-w="1" data-i18n="est.t.landing">Landing</button>
+            <button type="button" data-w="2" data-i18n="est.t.corp">Kurumsal Site</button>
+            <button type="button" data-w="4" data-i18n="est.t.app">Web Uygulaması</button>
+            <button type="button" data-w="4" data-i18n="est.t.ecom">E-ticaret</button>
+            <button type="button" data-w="5" data-i18n="est.t.custom">Özel Sistem</button>
+          </div>
+        </div>
+        <div>
+          <div class="estlabel" data-i18n="est.feat">Özellikler</div>
+          <div class="estopts">
+            <button type="button" data-w="1" data-i18n="est.f.panel">Yönetim paneli</button>
+            <button type="button" data-w="1" data-i18n="est.f.lang">Çoklu dil</button>
+            <button type="button" data-w="2" data-i18n="est.f.pay">Ödeme entegrasyonu</button>
+            <button type="button" data-w="2" data-i18n="est.f.rt">Gerçek zamanlı</button>
+            <button type="button" data-w="1" data-i18n="est.f.seo">SEO &amp; hız</button>
+            <button type="button" data-w="1" data-i18n="est.f.api">API entegrasyonu</button>
+          </div>
+        </div>
+        <div>
+          <div class="estlabel" data-i18n="est.urg">Zamanlama</div>
+          <div class="estopts" data-single="1">
+            <button type="button" data-w="0" data-i18n="est.u.normal">Normal</button>
+            <button type="button" data-w="1" data-i18n="est.u.rush">Acele</button>
+          </div>
+        </div>
+      </div>
+      <div class="estout">
+        <div class="estlabel" data-i18n="est.result">Tahmini</div>
+        <div class="esttier" id="est-tier" data-i18n="est.pick">Seçim yap →</div>
+        <div class="estmeta"><span id="est-time">—</span> · <span id="est-scope" data-i18n="est.scopelabel">tahmini süre</span></div>
+        <p class="estnote" data-i18n="est.note">Bu bir ön tahmindir; net fiyat ve süreyi kapsamı konuşunca veririm.</p>
+        <a class="btn ana" href="#iletisim" style="justify-content:center"><span data-i18n="link.quote">Teklif Al</span><svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="yetenekler">
   <div class="kap">
     <div class="shead reveal">
@@ -475,6 +574,19 @@
       <span>SQL</span><span>REST API</span><span data-i18n="skill.realtime">Gerçek Zamanlı Sistemler</span>
       <span>HTML</span><span>CSS</span><span>Git</span>
       <span data-i18n="skill.fullstack">Full-Stack Geliştirme</span><span data-i18n="skill.fraud">Fraud &amp; Risk Analizi</span><span data-i18n="skill.automation">Otomasyon</span>
+    </div>
+  </div>
+</section>
+
+<section id="github">
+  <div class="kap">
+    <div class="shead reveal">
+      <span class="eyebrow" data-i18n="gh.eyebrow">Canlı GitHub</span>
+      <h2 data-i18n="gh.h2">Açık kaynak &amp; aktif geliştirme</h2>
+      <p data-i18n="gh.sub">GitHub'daki son çalışmalarım — bu liste canlı, kendi kendine güncellenir.</p>
+    </div>
+    <div class="ghgrid reveal" id="ghrepos">
+      <div class="ghempty" data-i18n="gh.loading">Yükleniyor…</div>
     </div>
   </div>
 </section>
@@ -643,6 +755,39 @@
 "link.live":{tr:"Canlı Gör",en:"View Live",de:"Live ansehen"},
 "link.bionluk":{tr:"Bionluk'ta Gör",en:"View on Bionluk",de:"Auf Bionluk ansehen"},
 "link.quote":{tr:"Teklif Al",en:"Get a Quote",de:"Angebot anfordern"},
+"est.eyebrow":{tr:"Proje Hesaplayıcı",en:"Project Estimator",de:"Projekt-Rechner"},
+"est.h2":{tr:"Projeni birkaç tıkla planla",en:"Plan your project in a few clicks",de:"Plane dein Projekt mit wenigen Klicks"},
+"est.sub":{tr:"Seç, anında tahmini kapsam ve süreyi gör — net teklifi birlikte netleştiririz.",en:"Select and instantly see estimated scope and time — we finalize the exact quote together.",de:"Wähle aus und sieh sofort geschätzten Umfang und Zeit — das genaue Angebot klären wir gemeinsam."},
+"est.type":{tr:"Proje türü",en:"Project type",de:"Projekttyp"},
+"est.t.landing":{tr:"Landing",en:"Landing",de:"Landing"},
+"est.t.corp":{tr:"Kurumsal Site",en:"Corporate Site",de:"Unternehmensseite"},
+"est.t.app":{tr:"Web Uygulaması",en:"Web App",de:"Web-App"},
+"est.t.ecom":{tr:"E-ticaret",en:"E-commerce",de:"E-Commerce"},
+"est.t.custom":{tr:"Özel Sistem",en:"Custom System",de:"Individuelles System"},
+"est.feat":{tr:"Özellikler",en:"Features",de:"Funktionen"},
+"est.f.panel":{tr:"Yönetim paneli",en:"Admin panel",de:"Admin-Panel"},
+"est.f.lang":{tr:"Çoklu dil",en:"Multi-language",de:"Mehrsprachig"},
+"est.f.pay":{tr:"Ödeme entegrasyonu",en:"Payment integration",de:"Zahlungsintegration"},
+"est.f.rt":{tr:"Gerçek zamanlı",en:"Real-time",de:"Echtzeit"},
+"est.f.seo":{tr:"SEO &amp; hız",en:"SEO &amp; speed",de:"SEO &amp; Tempo"},
+"est.f.api":{tr:"API entegrasyonu",en:"API integration",de:"API-Integration"},
+"est.urg":{tr:"Zamanlama",en:"Timing",de:"Zeitplan"},
+"est.u.normal":{tr:"Normal",en:"Normal",de:"Normal"},
+"est.u.rush":{tr:"Acele",en:"Rush",de:"Eilig"},
+"est.result":{tr:"Tahmini",en:"Estimate",de:"Schätzung"},
+"est.pick":{tr:"Seçim yap →",en:"Make a selection →",de:"Triff eine Auswahl →"},
+"est.scopelabel":{tr:"tahmini süre",en:"estimated time",de:"geschätzte Zeit"},
+"est.note":{tr:"Bu bir ön tahmindir; net fiyat ve süreyi kapsamı konuşunca veririm.",en:"This is a rough estimate; I'll give the exact price and time once we discuss the scope.",de:"Dies ist eine grobe Schätzung; den genauen Preis und Zeitrahmen nenne ich nach Besprechung des Umfangs."},
+"gh.eyebrow":{tr:"Canlı GitHub",en:"Live GitHub",de:"Live-GitHub"},
+"gh.h2":{tr:"Açık kaynak &amp; aktif geliştirme",en:"Open source &amp; active development",de:"Open Source &amp; aktive Entwicklung"},
+"gh.sub":{tr:"GitHub'daki son çalışmalarım — bu liste canlı, kendi kendine güncellenir.",en:"My latest work on GitHub — this list is live and updates itself.",de:"Meine neuesten Arbeiten auf GitHub — diese Liste ist live und aktualisiert sich selbst."},
+"gh.loading":{tr:"Yükleniyor…",en:"Loading…",de:"Wird geladen…"},
+"demo.eyebrow":{tr:"Canlı Demo",en:"Live Demo",de:"Live-Demo"},
+"demo.h2":{tr:"Gerçek zamanlı — kendin dene",en:"Real-time — try it yourself",de:"Echtzeit — probiere es selbst"},
+"demo.sub":{tr:"Bu sayfayı iki sekmede aç, birinde tıkla; diğerinde anında senkron olsun. İşte bizim işimiz.",en:"Open this page in two tabs, click in one; the other syncs instantly. This is what we do.",de:"Öffne diese Seite in zwei Tabs, klicke in einem; der andere synchronisiert sofort. Genau das machen wir."},
+"demo.clicks":{tr:"senkron tıklama",en:"synced clicks",de:"synchrone Klicks"},
+"demo.btn":{tr:"Canlı Gönder",en:"Send Live",de:"Live senden"},
+"demo.tabs":{tr:"bağlı sekme",en:"connected tabs",de:"verbundene Tabs"},
 "vaka.eyebrow":{tr:"Vaka Çalışmaları",en:"Case Studies",de:"Fallstudien"},
 "vaka.h2":{tr:"Yakından: nasıl çözdük",en:"Up close: how we solved it",de:"Im Detail: wie wir es gelöst haben"},
 "vaka.sub":{tr:"Birkaç işi hedef, yaklaşım ve sonucuyla açtık.",en:"A few projects, broken down by goal, approach and result.",de:"Einige Projekte, aufgeschlüsselt nach Ziel, Ansatz und Ergebnis."},
@@ -753,6 +898,79 @@
     b.addEventListener('click',function(){ apply(b.getAttribute('data-lang')); });
   });
   apply(saved);
+})();
+</script>
+<script>
+(function(){
+  var root=document.getElementById('hesaplayici'); if(!root) return;
+  var L={
+    tiers:{tr:["Küçük kapsam","Orta kapsam","Büyük kapsam","Kapsamlı sistem"],en:["Small scope","Medium scope","Large scope","Comprehensive system"],de:["Kleiner Umfang","Mittlerer Umfang","Großer Umfang","Umfassendes System"]},
+    times:{tr:["birkaç gün","1-2 hafta","3-5 hafta","6+ hafta"],en:["a few days","1-2 weeks","3-5 weeks","6+ weeks"],de:["wenige Tage","1-2 Wochen","3-5 Wochen","6+ Wochen"]}
+  };
+  function lang(){ var l=document.documentElement.lang; return /^(en|de)$/.test(l)?l:'tr'; }
+  root.querySelectorAll('.estopts').forEach(function(g){
+    var single=g.getAttribute('data-single');
+    g.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){
+        if(single){ g.querySelectorAll('button').forEach(function(x){x.classList.remove('on')}); b.classList.add('on'); }
+        else b.classList.toggle('on');
+        calc();
+      });
+    });
+  });
+  function calc(){
+    var w=0, any=false;
+    root.querySelectorAll('.estopts button.on').forEach(function(b){ w+=parseInt(b.getAttribute('data-w')||'0',10); any=true; });
+    if(!any) return;
+    var i = w<=2?0 : w<=5?1 : w<=8?2 : 3, l=lang();
+    document.getElementById('est-tier').textContent=L.tiers[l][i];
+    document.getElementById('est-time').textContent=L.times[l][i];
+  }
+})();
+</script>
+<script>
+(function(){
+  var box=document.getElementById('ghrepos'); if(!box) return;
+  var icon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 00-1.3-3.2 4.2 4.2 0 00-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 00-6.2 0C6.7 2.3 5.6 2.6 5.6 2.6a4.2 4.2 0 00-.1 3.2A4.6 4.6 0 004 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>';
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function ago(d){
+    var l=(/^(en|de)$/.test(document.documentElement.lang)?document.documentElement.lang:'tr');
+    var U={tr:{d:"gün önce",mo:"ay önce",y:"yıl önce",now:"bugün"},en:{d:"days ago",mo:"months ago",y:"years ago",now:"today"},de:{d:"Tage her",mo:"Monate her",y:"Jahre her",now:"heute"}}[l];
+    var s=(Date.now()-new Date(d))/1000, D=86400;
+    if(s<D) return U.now; var n=Math.floor(s/D); if(n<30) return n+" "+U.d; var m=Math.floor(n/30); if(m<12) return m+" "+U.mo; return Math.floor(m/12)+" "+U.y;
+  }
+  function fallback(){ box.innerHTML='<div class="ghempty"><a href="https://github.com/arventia-lab" target="_blank" rel="noopener" style="color:var(--teal)">github.com/arventia-lab →</a></div>'; }
+  fetch('https://api.github.com/users/arventia-lab/repos?sort=updated&per_page=12')
+    .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+    .then(function(rs){
+      rs=(rs||[]).filter(function(x){return !x.fork;}).slice(0,6);
+      if(!rs.length){ fallback(); return; }
+      box.innerHTML=rs.map(function(x){
+        return '<a class="ghcard" href="'+x.html_url+'" target="_blank" rel="noopener"><h3>'+icon+esc(x.name)+'</h3><p>'+esc(x.description||'—')+'</p><div class="ghmeta">'+(x.language?'<span><span class="dotlang"></span>'+esc(x.language)+'</span>':'')+'<span>★ '+(x.stargazers_count||0)+'</span><span>'+ago(x.updated_at)+'</span></div></a>';
+      }).join('');
+    })
+    .catch(function(){ fallback(); });
+})();
+</script>
+<script>
+(function(){
+  var btn=document.getElementById('demo-btn'); if(!btn || !('BroadcastChannel' in window)) return;
+  var ch=new BroadcastChannel('chermantia-live');
+  var countEl=document.getElementById('demo-count'), pulse=document.getElementById('demo-pulse'), tabsEl=document.getElementById('demo-tabs');
+  var n=0, id=Math.random().toString(36).slice(2), peers={};
+  function flash(){ pulse.classList.add('on'); setTimeout(function(){pulse.classList.remove('on');},150); }
+  function bump(){ n++; countEl.textContent=n; flash(); }
+  function render(){ var now=Date.now(); for(var k in peers){ if(now-peers[k]>8000) delete peers[k]; } tabsEl.textContent=Object.keys(peers).length+1; }
+  btn.addEventListener('click',function(){ bump(); ch.postMessage({t:'click'}); });
+  ch.onmessage=function(e){ var d=e.data||{};
+    if(d.t==='click'){ bump(); }
+    else if(d.t==='hi'){ peers[d.id]=Date.now(); ch.postMessage({t:'yo',id:id}); render(); }
+    else if(d.t==='yo'){ peers[d.id]=Date.now(); render(); }
+    else if(d.t==='bye'){ delete peers[d.id]; render(); }
+  };
+  ch.postMessage({t:'hi',id:id});
+  setInterval(function(){ ch.postMessage({t:'yo',id:id}); render(); },3000);
+  window.addEventListener('beforeunload',function(){ try{ch.postMessage({t:'bye',id:id});}catch(e){} });
 })();
 </script>
 </body>
