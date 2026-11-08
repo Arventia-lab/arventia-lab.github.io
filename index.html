@@ -175,6 +175,20 @@
   .grid>.reveal:nth-child(2){transition-delay:.1s}
   .grid>.reveal:nth-child(3){transition-delay:.2s}
   .sk span{transition:.18s,border-color .15s}
+  /* PINNED hero (sabit + scroll animasyonu) */
+  .pin{position:relative;height:210vh}
+  .pinner{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden}
+  .pinrow{display:grid;grid-template-columns:1.12fr .88fr;gap:40px;align-items:center;width:100%}
+  .willch{will-change:transform,opacity}
+  .scroll-cue{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--dim);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;font-family:"Space Grotesk"}
+  .scroll-cue .ln{width:1px;height:38px;background:linear-gradient(var(--teal),transparent);animation:cue 1.9s ease-in-out infinite}
+  @keyframes cue{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+  @media(max-width:860px){
+    .pin{height:auto}.pinner{position:static;height:auto;padding:90px 0 60px}
+    .pinrow{grid-template-columns:1fr}.codewrap{order:-1;margin-bottom:10px}
+    .scroll-cue{display:none}
+  }
+  @media(prefers-reduced-motion:reduce){.pin{height:auto}.pinner{position:static;height:auto;padding:90px 0}.scroll-cue{display:none}}
 </style>
 </head>
 <body>
@@ -197,27 +211,28 @@
   </div>
 </nav>
 
-<header class="hero">
-  <div class="kap">
-    <div>
-      <span class="chip"><span class="dot"></span> Freelance &amp; uzaktan projelere açık</span>
-      <h1 class="hbas">Fikirden<br><span class="ggrad">canlı ürüne</span></h1>
-      <p class="hsub"><b>Chermantia</b> — full-stack web, gerçek zamanlı sistemler ve otomasyon üzerine bağımsız bir yazılım stüdyosu. Veritabanından arayüze, uçtan uca inşa ederiz.</p>
-      <div class="hbtns">
-        <a class="btn ana" href="#projeler">İşlere Bak
-          <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn hyl" href="#iletisim">İletişime Geç</a>
+<section class="pin">
+  <div class="pinner">
+    <div class="kap pinrow">
+      <div class="pintext willch">
+        <span class="chip"><span class="dot"></span> Freelance &amp; uzaktan projelere açık</span>
+        <h1 class="hbas">Fikirden<br><span class="ggrad">canlı ürüne</span></h1>
+        <p class="hsub"><b>Chermantia</b> — full-stack web, gerçek zamanlı sistemler ve otomasyon üzerine bağımsız bir yazılım stüdyosu. Veritabanından arayüze, uçtan uca inşa ederiz.</p>
+        <div class="hbtns">
+          <a class="btn ana" href="#projeler">İşlere Bak
+            <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn hyl" href="#iletisim">İletişime Geç</a>
+        </div>
+        <div class="istat">
+          <div><div class="n ggrad">5+</div><div class="l">yıl deneyim</div></div>
+          <div><div class="n ggrad">Full-Stack</div><div class="l">uçtan uca geliştirme</div></div>
+          <div><div class="n ggrad">Real-time</div><div class="l">WebSocket &amp; çok oyunculu</div></div>
+        </div>
       </div>
-      <div class="istat">
-        <div><div class="n ggrad">5+</div><div class="l">yıl deneyim</div></div>
-        <div><div class="n ggrad">Full-Stack</div><div class="l">uçtan uca geliştirme</div></div>
-        <div><div class="n ggrad">Real-time</div><div class="l">WebSocket &amp; çok oyunculu</div></div>
-      </div>
-    </div>
-    <div class="codewrap">
-      <div class="glowpad"></div>
-      <div class="codewin">
-        <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><em>chermantia ~ sunucu.ts</em></div>
+      <div class="codewrap willch">
+        <div class="glowpad"></div>
+        <div class="codewin">
+          <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><em>chermantia ~ sunucu.ts</em></div>
 <pre><span class="c">// gerçek zamanlı · uçtan uca</span>
 <span class="k">const</span> app = <span class="n">Bun</span>.<span class="f">serve</span>({
   port: <span class="s">3000</span>,
@@ -227,10 +242,12 @@
   },
   <span class="f">fetch</span>(req) { <span class="k">return</span> <span class="f">api</span>(req) }
 })</pre>
+        </div>
       </div>
     </div>
+    <div class="scroll-cue"><span>kaydır</span><span class="ln"></span></div>
   </div>
-</header>
+</section>
 
 <section id="projeler">
   <div class="kap">
@@ -343,12 +360,24 @@
     var lenis=new Lenis({duration:1.15,smoothWheel:true,wheelMultiplier:1,touchMultiplier:1.5});
     function raf(t){lenis.raf(t);requestAnimationFrame(raf)}
     requestAnimationFrame(raf);
-    var field=document.querySelector('.field'), cw=document.querySelector('.codewrap');
-    lenis.on('scroll',function(){
+    var field=document.querySelector('.field'),
+        pin=document.querySelector('.pin'),
+        cw=document.querySelector('.codewrap'),
+        ptext=document.querySelector('.pintext');
+    function apply(){
       var y=lenis.scroll||window.scrollY||0;
-      if(field)field.style.transform='translateY('+(y*0.07).toFixed(1)+'px)';
-      if(cw)cw.style.transform='translateY('+Math.max(-70,-y*0.05).toFixed(1)+'px)';
-    });
+      if(field)field.style.transform='translateY('+(y*0.05).toFixed(1)+'px)';
+      if(pin && window.innerWidth>860){
+        var total=pin.offsetHeight-window.innerHeight;
+        var p=total>0?(y-pin.offsetTop)/total:0; p=Math.min(1,Math.max(0,p));
+        if(cw){cw.style.transform='perspective(1100px) translateY('+(p*-54).toFixed(1)+'px) rotateX('+(p*12).toFixed(1)+'deg) scale('+(1-p*0.12).toFixed(3)+')';cw.style.opacity=(1-p*0.5).toFixed(2);}
+        if(ptext){ptext.style.transform='translateY('+(p*-42).toFixed(1)+'px)';ptext.style.opacity=(1-p*0.62).toFixed(2);}
+      } else {
+        if(cw){cw.style.transform='';cw.style.opacity='';}
+        if(ptext){ptext.style.transform='';ptext.style.opacity='';}
+      }
+    }
+    lenis.on('scroll',apply); apply();
   }
 </script>
 </body>
