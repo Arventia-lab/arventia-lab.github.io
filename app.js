@@ -531,4 +531,23 @@ apply(saved);
   if(gh){ try{ new MutationObserver(function(){ bind(gh.querySelectorAll('.ghcard')); }).observe(gh,{childList:true}); }catch(e){} }
 })();
 
+/* ---------- hero kod penceresi: satır satır "yazılıyor" ---------- */
+(function(){
+  var pre=document.querySelector('.codewin pre'); if(!pre) return;
+  var raw=pre.innerHTML.replace(/\n+$/,'');
+  var lines=raw.split('\n');
+  pre.innerHTML=lines.map(function(l){ return '<span class="codeline">'+(l.length?l:'&nbsp;')+'</span>'; }).join('');
+  var ls=pre.querySelectorAll('.codeline');
+  var reduce=false; try{ reduce=matchMedia('(prefers-reduced-motion:reduce)').matches; }catch(e){}
+  if(reduce){ ls.forEach(function(s){ s.classList.add('shown'); }); return; }
+  var caret=document.createElement('span'); caret.className='codecaret';
+  var i=0;
+  function step(){
+    if(i>=ls.length){ (ls[ls.length-1]||pre).appendChild(caret); return; }
+    ls[i].classList.add('shown'); i++;
+    setTimeout(step,150);
+  }
+  setTimeout(step,420);
+})();
+
 })();

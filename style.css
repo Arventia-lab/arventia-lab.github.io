@@ -354,3 +354,10 @@ html.lenis,html.lenis body{height:auto}
 .fx{transform-style:preserve-3d}
 .fx::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),rgba(31,224,200,.2),rgba(124,92,255,.08) 42%,transparent 66%);mix-blend-mode:screen;opacity:0;transition:opacity .25s ease;pointer-events:none;z-index:2}
 .fx.lit::after{opacity:1}
+
+/* ===== hero kod penceresi: satır satır yazım ===== */
+.codeline{display:block;opacity:0;transform:translateY(3px);transition:opacity .3s ease,transform .3s ease}
+.codeline.shown{opacity:1;transform:none}
+.codecaret{display:inline-block;width:7px;height:1.02em;background:var(--teal);margin-left:3px;vertical-align:-2px;border-radius:1px;box-shadow:0 0 8px rgba(31,224,200,.8);animation:ccaret 1.05s steps(1) infinite}
+@keyframes ccaret{0%,50%{opacity:1}50.01%,100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){ .codeline{opacity:1;transform:none;transition:none} .codecaret{animation:none} }
