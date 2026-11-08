@@ -276,3 +276,20 @@ html.lenis,html.lenis body{height:auto}
   .scroll-cue{display:none}
 }
 @media(prefers-reduced-motion:reduce){.pin{height:auto}.pinner{position:static;height:auto;padding:90px 0}.scroll-cue{display:none}}
+/* canlı mimari diyagram */
+.archwrap{position:relative;background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:22px;padding:30px 26px;overflow:hidden}
+.archwrap::before{content:"";position:absolute;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(31,224,200,.1),transparent 70%);top:-160px;right:-80px;filter:blur(30px);pointer-events:none}
+.archscroll{position:relative;overflow-x:auto;overflow-y:hidden}
+.archsvg{position:relative;width:100%;min-width:600px;height:auto;display:block}
+.arch .node{fill:#0a0e1a;stroke:var(--line2);stroke-width:1.2}
+.arch .node.srv{fill:url(#srvgrad)}
+.arch .nlabel{fill:var(--txt);font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:16px}
+.arch .nsub{fill:var(--soft);font-family:"DM Sans",sans-serif;font-weight:500;font-size:12px}
+.arch .mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;fill:#b9a7ff}
+.arch .link{stroke:rgba(255,255,255,.16);stroke-width:2;fill:none}
+.arch .llabel{fill:var(--dim);font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:11px;letter-spacing:.03em}
+.arch .nico{stroke:var(--teal);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.archlegend{position:relative;display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:20px;color:var(--soft);font-size:.82rem}
+.archlegend span{display:inline-flex;align-items:center;gap:7px}
+.archlegend i{width:9px;height:9px;border-radius:50%;display:inline-block}
+@media(prefers-reduced-motion:reduce){.arch .dot{display:none}}

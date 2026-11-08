@@ -41,7 +41,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Sacramento&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
@@ -145,6 +145,62 @@
   </div>
 </section>
 
+<section id="mimari" class="tight">
+  <div class="kap">
+    <div class="shead reveal">
+      <span class="eyebrow" data-i18n="arch.eyebrow">Mimari</span>
+      <h2 data-i18n="arch.h2">Perde arkası: nasıl çalışıyor</h2>
+      <p data-i18n="arch.sub">Tarayıcıdan veritabanına kadar uçtan uca kurduğumuz gerçek zamanlı mimari — veri paketleri canlı akıyor.</p>
+    </div>
+    <div class="archwrap arch reveal">
+      <div class="archscroll">
+      <svg class="archsvg" viewBox="0 0 960 300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Chermantia gerçek zamanlı mimari: Tarayıcı, Bun Sunucu (REST + WebSocket), Motor ve SQLite veritabanı">
+        <defs>
+          <linearGradient id="srvgrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="rgba(31,224,200,.12)"/>
+            <stop offset="1" stop-color="rgba(124,92,255,.14)"/>
+          </linearGradient>
+        </defs>
+        <path id="lnk-ws1" class="link" d="M180 140 H340"/>
+        <path id="lnk-ws2" class="link" d="M340 170 H180"/>
+        <path id="lnk-eng" class="link" d="M530 128 C 620 128 630 116 710 116"/>
+        <path id="lnk-db"  class="link" d="M530 182 C 620 182 630 206 710 206"/>
+        <text class="llabel" x="260" y="126" text-anchor="middle">WebSocket ⇄</text>
+        <text class="mono"   x="624" y="102" text-anchor="middle">motor.hamle()</text>
+        <text class="llabel" x="628" y="234" text-anchor="middle">SQL</text>
+        <rect class="node" x="30" y="113" width="150" height="84" rx="14"/>
+        <text class="nlabel" x="105" y="150" text-anchor="middle" data-i18n="arch.client">Tarayıcı</text>
+        <text class="nsub"   x="105" y="172" text-anchor="middle" data-i18n="arch.clientsub">React · arayüz</text>
+        <rect class="node srv" x="340" y="70" width="190" height="170" rx="16"/>
+        <text class="nlabel" x="435" y="112" text-anchor="middle" data-i18n="arch.server">Bun Sunucu</text>
+        <text class="mono"   x="435" y="150" text-anchor="middle" fill="#1fe0c8">Bun.serve()</text>
+        <text class="nsub"   x="435" y="178" text-anchor="middle">REST + WebSocket</text>
+        <rect class="node" x="710" y="82" width="170" height="72" rx="14"/>
+        <text class="nlabel" x="795" y="112" text-anchor="middle" data-i18n="arch.engine">Motor</text>
+        <text class="nsub"   x="795" y="134" text-anchor="middle" data-i18n="arch.enginesub">oyun / iş mantığı</text>
+        <rect class="node" x="710" y="172" width="170" height="72" rx="14"/>
+        <text class="nlabel" x="795" y="202" text-anchor="middle" data-i18n="arch.db">Veritabanı</text>
+        <text class="nsub"   x="795" y="224" text-anchor="middle" data-i18n="arch.dbsub">SQLite · kalıcı veri</text>
+        <circle class="dot" r="4.5" fill="#1fe0c8"><animateMotion dur="2.3s" repeatCount="indefinite" begin="0s"><mpath xlink:href="#lnk-ws1"/></animateMotion></circle>
+        <circle class="dot" r="4.5" fill="#1fe0c8"><animateMotion dur="2.3s" repeatCount="indefinite" begin="-0.8s"><mpath xlink:href="#lnk-ws1"/></animateMotion></circle>
+        <circle class="dot" r="4.5" fill="#1fe0c8"><animateMotion dur="2.3s" repeatCount="indefinite" begin="-1.5s"><mpath xlink:href="#lnk-ws1"/></animateMotion></circle>
+        <circle class="dot" r="4.5" fill="#12b8d8"><animateMotion dur="2.3s" repeatCount="indefinite" begin="-0.5s"><mpath xlink:href="#lnk-ws2"/></animateMotion></circle>
+        <circle class="dot" r="4.5" fill="#12b8d8"><animateMotion dur="2.3s" repeatCount="indefinite" begin="-1.6s"><mpath xlink:href="#lnk-ws2"/></animateMotion></circle>
+        <circle class="dot" r="4.5" fill="#7c5cff"><animateMotion dur="2s" repeatCount="indefinite" begin="0s"><mpath xlink:href="#lnk-eng"/></animateMotion></circle>
+        <circle class="dot" r="4.5" fill="#7c5cff"><animateMotion dur="2s" repeatCount="indefinite" begin="-1s"><mpath xlink:href="#lnk-eng"/></animateMotion></circle>
+        <circle class="dot" r="4.5" fill="#e24bd1"><animateMotion dur="2.1s" repeatCount="indefinite" begin="-0.3s"><mpath xlink:href="#lnk-db"/></animateMotion></circle>
+        <circle class="dot" r="4.5" fill="#e24bd1"><animateMotion dur="2.1s" repeatCount="indefinite" begin="-1.2s"><mpath xlink:href="#lnk-db"/></animateMotion></circle>
+      </svg>
+      </div>
+      <div class="archlegend">
+        <span><i style="background:#1fe0c8"></i><span data-i18n="arch.leg.ws">WebSocket (çift yönlü)</span></span>
+        <span><i style="background:#7c5cff"></i><span data-i18n="arch.leg.eng">Motor çağrısı</span></span>
+        <span><i style="background:#e24bd1"></i><span data-i18n="arch.leg.db">Veri yazma/okuma</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="demo" class="tight">
   <div class="kap">
     <div class="shead reveal">
@@ -230,6 +286,6 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-<script src="app.js?v=3"></script>
+<script src="app.js?v=4"></script>
 </body>
 </html>
