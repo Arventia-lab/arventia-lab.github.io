@@ -187,6 +187,24 @@
   .snum{font-family:"Space Grotesk";font-weight:700;font-size:1.5rem;background:linear-gradient(100deg,var(--teal),var(--vio));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:12px}
   .step h3{font-size:1.1rem;font-weight:700;margin-bottom:7px}
   .step p{color:var(--soft);font-size:.93rem}
+  /* vaka */
+  .cases{display:flex;flex-direction:column;gap:22px}
+  .case{display:grid;grid-template-columns:1.08fr .92fr;gap:30px;align-items:center;background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:22px;padding:34px}
+  .ctag{display:inline-block;font-family:"Space Grotesk";font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);background:rgba(31,224,200,.08);border:1px solid rgba(31,224,200,.25);padding:5px 12px;border-radius:999px;margin-bottom:12px}
+  .case h3{font-size:1.55rem;font-weight:700;margin-bottom:16px}
+  .cblock{margin-bottom:12px}
+  .cblock h4{font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:var(--dim);margin-bottom:2px;font-family:"Space Grotesk"}
+  .cblock p{color:var(--soft);font-size:.95rem}
+  .caseR{display:grid;place-items:center}
+  .mock{width:100%;max-width:320px;background:#0a0e1a;border:1px solid var(--line2);border-radius:16px;padding:18px 20px}
+  .mrow{display:flex;align-items:center;gap:11px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+  .mrow:last-child{border-bottom:0}
+  .mbar{height:8px;border-radius:4px;background:rgba(255,255,255,.1)}
+  .rdot{width:11px;height:11px;border-radius:50%;flex:0 0 auto}
+  .rdot.red{background:#ff6a5e;box-shadow:0 0 9px rgba(255,106,94,.6)}
+  .rdot.amb{background:#ffb020}
+  .rdot.grn{background:#22d3a5;box-shadow:0 0 9px rgba(34,211,165,.5)}
+  @media(max-width:820px){.case{grid-template-columns:1fr;padding:26px}.caseR{order:-1}}
   /* PINNED hero (sabit + scroll animasyonu) */
   .pin{position:relative;height:210vh}
   .pinner{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden}
@@ -293,6 +311,62 @@
         <p>Bun + TypeScript ile uçtan uca web uygulamaları: kullanıcı/oturum yönetimi, SQLite veritabanı, REST + WebSocket API ve yönetim paneli. İhtiyaca özel panel ve otomasyon.</p>
         <div class="pills"><span class="pill">Full-Stack</span><span class="pill">SQLite</span><span class="pill">REST + WS</span></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="vaka">
+  <div class="kap">
+    <div class="shead reveal">
+      <span class="eyebrow">Vaka Çalışmaları</span>
+      <h2>Yakından: nasıl çözdük</h2>
+      <p>Birkaç işi hedef, yaklaşım ve sonucuyla açtık.</p>
+    </div>
+    <div class="cases">
+      <article class="case reveal">
+        <div class="caseL">
+          <span class="ctag">Fraud &amp; Risk</span>
+          <h3>Payout Review</h3>
+          <div class="cblock"><h4>Hedef</h4><p>Ödeme/çekim işlemlerinde riskli hesapları, veriyi dışarı çıkarmadan hızlıca ayıklamak.</p></div>
+          <div class="cblock"><h4>Yaklaşım</h4><p>Tamamen tarayıcıda çalışan, CSV yükleyip hesap bazında kural motoruyla risk skoru üreten bir araç geliştirdik — sunucu ya da entegrasyon gerektirmez.</p></div>
+          <div class="cblock"><h4>Sonuç</h4><p>Veri gizliliği korunarak (hiçbir şey tarayıcıdan çıkmaz) yüzlerce kaydın manuel incelemesi dakikalara indi.</p></div>
+          <div class="pills"><span class="pill">JavaScript</span><span class="pill">Kural Motoru</span><span class="pill">Veri Analizi</span></div>
+          <a class="plink" href="https://arventia-lab.github.io/payout-review/" target="_blank" rel="noopener">Canlı Gör
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+        </div>
+        <div class="caseR">
+          <div class="mock">
+            <div class="mrow"><span class="mbar" style="flex:1;width:70%"></span><span class="rdot grn"></span></div>
+            <div class="mrow"><span class="mbar" style="flex:1"></span><span class="rdot red"></span></div>
+            <div class="mrow"><span class="mbar" style="flex:1;width:85%"></span><span class="rdot amb"></span></div>
+            <div class="mrow"><span class="mbar" style="flex:1;width:60%"></span><span class="rdot grn"></span></div>
+            <div class="mrow"><span class="mbar" style="flex:1;width:92%"></span><span class="rdot red"></span></div>
+          </div>
+        </div>
+      </article>
+      <article class="case reveal">
+        <div class="caseL">
+          <span class="ctag">Gerçek Zamanlı Oyun</span>
+          <h3>Çok Oyunculu Okey &amp; Batak</h3>
+          <div class="cblock"><h4>Hedef</h4><p>Birden fazla oyuncunun aynı masada gecikmesiz, senkron oynayabildiği bir oyun platformu.</p></div>
+          <div class="cblock"><h4>Yaklaşım</h4><p>WebSocket üzerinde gerçek zamanlı sunucular; yapılandırılabilir oyun motorları (düz / cezalı / 101 okey, batak), bot rakipler ve canlı masa durumu.</p></div>
+          <div class="cblock"><h4>Sonuç</h4><p>Anlık senkron masa, kopmalara dayanıklı oturum yönetimi ve kolayca yeni mod eklenebilen esnek motor mimarisi.</p></div>
+          <div class="pills"><span class="pill">WebSocket</span><span class="pill">Node.js</span><span class="pill">Real-time</span></div>
+        </div>
+        <div class="caseR">
+          <div class="mock" style="display:grid;place-items:center">
+            <svg width="100%" viewBox="0 0 220 160" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="110" cy="80" rx="88" ry="58" fill="rgba(34,211,165,.08)" stroke="rgba(34,211,165,.35)"/>
+              <ellipse cx="110" cy="80" rx="60" ry="36" fill="none" stroke="rgba(255,255,255,.08)"/>
+              <circle cx="110" cy="26" r="7" fill="#19e0d2"/><circle cx="188" cy="80" r="7" fill="#7c5cff"/>
+              <circle cx="110" cy="134" r="7" fill="#e24bd1"/><circle cx="32" cy="80" r="7" fill="#ffce6b"/>
+              <rect x="94" y="72" width="11" height="16" rx="2" fill="#eaf1f6" opacity=".85"/>
+              <rect x="108" y="72" width="11" height="16" rx="2" fill="#19e0d2" opacity=".85"/>
+              <rect x="122" y="72" width="11" height="16" rx="2" fill="#eaf1f6" opacity=".85"/>
+            </svg>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
