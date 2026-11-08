@@ -91,6 +91,7 @@ if(estRoot){
     document.getElementById('est-tier').textContent=L.tiers[l][i];
     document.getElementById('est-time').textContent=L.times[l][i];
   }
+  document.addEventListener('chlang',calc);
 }
 
 /* ---------- canlı GitHub akışı ---------- */
@@ -312,6 +313,7 @@ function apply(l){
   document.documentElement.lang=l;
   document.querySelectorAll('.langsw button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang')===l); });
   try{ localStorage.setItem('lang',l); }catch(e){}
+  try{ document.dispatchEvent(new Event('chlang')); }catch(e){}
 }
 var saved='tr'; try{ saved=localStorage.getItem('lang')||'tr'; }catch(e){}
 if(!/^(tr|en|de)$/.test(saved)) saved='tr';
