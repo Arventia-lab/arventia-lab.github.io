@@ -168,6 +168,8 @@ var T={
 "proj.h2":{tr:"Uçtan uca geliştirdiğimiz işler",en:"Work we built end to end",de:"Projekte, die wir Ende-zu-Ende gebaut haben"},
 "proj.sub":{tr:"Tasarımdan veritabanına, canlıya alınmış gerçek çalışmalar.",en:"Real, shipped work — from design to database.",de:"Echte, live gegangene Arbeiten — vom Design bis zur Datenbank."},
 "proj1.title":{tr:"Payout Review",en:"Payout Review",de:"Payout Review"},
+"proj1.badge":{tr:"Canlı Araç",en:"Live Tool",de:"Live-Tool"},
+"proj1.live":{tr:"CANLI · DEMO VERİ",en:"LIVE · DEMO DATA",de:"LIVE · DEMO-DATEN"},
 "proj1.desc":{tr:"Tarayıcıda çalışan fraud &amp; risk inceleme aracı. CSV yükleyip hesap bazında risk skoru üretir — entegrasyon gerektirmez, veri tarayıcıdan çıkmaz.",en:"Browser-based fraud &amp; risk review tool. Upload a CSV and it scores risk per account — no integration, data never leaves the browser.",de:"Browserbasiertes Fraud- &amp; Risiko-Tool. CSV hochladen und es bewertet das Risiko pro Konto — keine Integration, Daten verlassen nie den Browser."},
 "proj2.title":{tr:"Gerçek Zamanlı Çok Oyunculu Platform",en:"Real-Time Multiplayer Platform",de:"Echtzeit-Multiplayer-Plattform"},
 "proj2.desc":{tr:"WebSocket ile gecikmesiz senkron sunucular: ölçeklenebilir motor mimarisi, canlı oturum ve masa yönetimi, bot rakipler. (Örnek uygulama: okey/batak.)",en:"Low-latency synced servers over WebSocket: scalable engine architecture, live session and table management, bot opponents. (Example build: okey/batak.)",de:"Latenzarme, synchrone Server über WebSocket: skalierbare Engine-Architektur, Live-Session- und Tischverwaltung, Bot-Gegner. (Beispiel: Okey/Batak.)"},
