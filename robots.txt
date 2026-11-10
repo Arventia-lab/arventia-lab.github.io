@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://arventia-lab.github.io/sitemap.xml
+Sitemap: https://chermantia.com/sitemap.xml
